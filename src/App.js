@@ -1,26 +1,16 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
+const App = () => {
+
+  const API_KEY = process.env.REACT_APP_API_KEY;
+  const APP_KEY = '2d508402b4840570e8a9933163754db5';
+  const search = '';
+  const API = `https://api.edamam.com/search?q=${search}&app_id=${APP_ID}&app_key=${API_KEY}`;
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <h1>Hello React</h1>
     </div>
-  );
+  )
 }
 
 export default App;
