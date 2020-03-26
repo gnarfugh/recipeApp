@@ -3,6 +3,11 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import 'typeface-roboto';
+import 'typeface-tangerine';
+import '@fortawesome/fontawesome-svg-core';
+import '@fortawesome/react-fontawesome';
+import '@fortawesome/fontawesome-svg-core';
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
