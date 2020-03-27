@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import Recipe from './components/recipe/Recipe';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faClock, faUsers } from '@fortawesome/free-solid-svg-icons';
+import { faClock, faUsers, faWeight } from '@fortawesome/free-solid-svg-icons';
 import './App.css';
 
 const App = () => {
 	const [recipes, setRecipes] = useState([]);
 	const [query, setQuery] = useState('');
 	const [search, setSearch] = useState('');
-	library.add(faClock, faUsers);
+	library.add(faClock, faUsers, faWeight);
 
 	useEffect(() => {
 		const creds = {
