@@ -1,2 +1,0 @@
-# recipeApp
-react recipe app
