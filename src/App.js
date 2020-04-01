@@ -12,7 +12,7 @@ const App = () => {
 
 	useEffect(() => {
 		const creds = {
-			key: process.env.REACT_APP_API_KEY,
+			key: process.env.REACT_APP_EDAMAM_KEY,
 			ID: 'a886a42e'
 		};
 		const API = `https://api.edamam.com/search?q=${query}&app_id=${creds.ID}&app_key=${creds.key}`;

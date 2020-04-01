@@ -7,8 +7,8 @@ const Calories = ({ calories, servings }) => {
 
 	return (
 		<div className={style.calories}>
-			<span>{newCalories} /</span>
-			<span className={style.serving}>serving</span>
+			<span>{newCalories} / </span>
+			<span className={style.serving}>cal. per serving</span>
 		</div>
 	);
 };

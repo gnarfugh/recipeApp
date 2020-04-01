@@ -2,6 +2,7 @@ import React from '../../../node_modules/react';
 import Ingredients from '../ingredients/Ingredients';
 import Calories from '../calories/Calories';
 import Time from '../time/Time';
+import Youtube from '../youtube/Youtube';
 import style from './recipe.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -27,6 +28,9 @@ const Recipe = ({ title, image, calories, servings, ingredients, time }) => {
 						<Calories calories={calories} servings={servings} />
 					</li>
 				</ul>
+				<div>
+					<Youtube title={title} />
+				</div>
 				<div className={style.ingredients_container}>
 					<h2>Ingredients</h2>
 					<ul>
