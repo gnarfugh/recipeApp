@@ -15,7 +15,7 @@ const App = () => {
 			key: process.env.REACT_APP_EDAMAM_KEY,
 			ID: 'a886a42e'
 		};
-		const API = `https://api.edamam.com/search?q=${query}&app_id=${creds.ID}&app_key=${creds.key}`;
+		const API = `/search?q=${query}&app_id=${creds.ID}&app_key=${creds.key}`;
 		const getRecipes = async () => {
 			const res = await fetch(API);
 			const data = await res.json();
