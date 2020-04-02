@@ -8,7 +8,7 @@ const Youtube = ({ title }) => {
 		const creds = {
 			key: process.env.REACT_APP_YOUTUBE_KEY
 		};
-		const API = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&order=relevance&relevanceLanguage=en&q=${titleSearch}&key=${creds.key}`;
+		const API = `https://cors-anywhere.herokuapp.com/https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&order=relevance&relevanceLanguage=en&q=${titleSearch}&key=${creds.key}`;
 
 		const getVideo = async () => {
 			const res = await fetch(API);

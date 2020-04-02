@@ -2,7 +2,6 @@
 	"name": "recipeapp",
 	"version": "0.1.0",
 	"private": true,
-	"proxy": "https://cors-anywhere.herokuapp.com/https://api.edamam.com",
 	"dependencies": {
 		"@fortawesome/fontawesome-svg-core": "^1.2.28",
 		"@fortawesome/free-solid-svg-icons": "^5.13.0",
