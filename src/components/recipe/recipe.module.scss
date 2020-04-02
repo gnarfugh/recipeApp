@@ -91,11 +91,12 @@
 .recipe article h2 {
 	@include center;
 	font-family: 'Tangerine', cursive;
-	margin: 0;
 	font-weight: 300;
+	text-align: center;
 }
 .recipe article h1 {
 	font-size: 3.5em;
+	margin: 0;
 }
 
 .recipe article h2 {
