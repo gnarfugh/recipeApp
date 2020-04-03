@@ -8,13 +8,13 @@ const Youtube = ({ title }) => {
 		const creds = {
 			key: process.env.REACT_APP_YOUTUBE_KEY
 		};
-		const API = `https://cors-anywhere.herokuapp.com/https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&order=relevance&relevanceLanguage=en&q=${titleSearch}&key=${creds.key}`;
+		const API = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&order=relevance&relevanceLanguage=en&q=${titleSearch}&key=${creds.key}`;
 
 		const getVideo = async () => {
 			const res = await fetch(API);
 			const data = await res.json();
 			console.log(data);
-			const url = `https://www.youtube.com/embed/${data.items[0].id.videoId}`;
+			const url = `https://www.youtube.com/embed/${data.items[0].id.videoId}&origin=https://vast-river-79433.herokuapp.com/`;
 			setVideo({ url });
 			console.log(url);
 		};
