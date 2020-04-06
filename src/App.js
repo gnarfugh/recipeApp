@@ -13,10 +13,10 @@ const App = () => {
 	useEffect(() => {
 		const creds = {
 			key: process.env.REACT_APP_EDAMAM_KEY,
-			ID: 'a886a42e'
+			ID: 'a886a42e',
 		};
-		const proxy = `https://cors-anywhere.herokuapp.com/`;
-		const API = `${proxy}https://cors-anywhere.herokuapp.com/https://api.edamam.com/search?q=${query}&app_id=${creds.ID}&app_key=${creds.key}`;
+		const proxy = `https://damp-plateau-34998.herokuapp.com/`;
+		const API = `${proxy}https://api.edamam.com/search?q=${query}&app_id=${creds.ID}&app_key=${creds.key}`;
 		const getRecipes = async () => {
 			const res = await fetch(API);
 			const data = await res.json();
@@ -26,11 +26,11 @@ const App = () => {
 		getRecipes();
 	}, [query]);
 
-	const updateSearch = e => {
+	const updateSearch = (e) => {
 		setSearch(e.target.value);
 	};
 
-	const getSearch = e => {
+	const getSearch = (e) => {
 		e.preventDefault();
 		setQuery(search);
 	};
