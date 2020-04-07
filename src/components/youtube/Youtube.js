@@ -8,13 +8,13 @@ const Youtube = ({ title }) => {
 		const creds = {
 			key: process.env.REACT_APP_YOUTUBE_KEY,
 		};
-		const proxy = `https://damp-plateau-34998.herokuapp.com/`;
-		const API = `${proxy}https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&order=relevance&relevanceLanguage=en&q=${titleSearch}&key=${creds.key}`;
+		//const proxy = `https://damp-plateau-34998.herokuapp.com/`;
+		const API = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&order=relevance&relevanceLanguage=en&q=${titleSearch}&key=${creds.key}`;
 
 		const getVideo = async () => {
 			const res = await fetch(API);
 			const data = await res.json();
-			const url = `https://www.youtube.com/embed/${data.items[0].id.videoId}&origin=${proxy}`;
+			const url = `https://www.youtube.com/embed/${data.items[0].id.videoId}`;
 			setVideo({ url });
 		};
 		getVideo();
