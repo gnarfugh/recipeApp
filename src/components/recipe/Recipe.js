@@ -12,7 +12,7 @@ const Recipe = ({ title, image, calories, servings, ingredients, time }) => {
 			<ImageContainer image={image} title={title} />
 			<article>
 				<Title title={title} />
-				<List servings={servings} time={time} calories={calories} />
+				<StatsList servings={servings} time={time} calories={calories} />
 				<Video title={title} />
 				<IngredientTable ingredients={ingredients} />
 			</article>
@@ -28,7 +28,7 @@ const ImageContainer = ({ image, title }) => {
 		</div>
 	);
 };
-const List = ({ servings, time, calories }) => {
+const StatsList = ({ servings, time, calories }) => {
 	return (
 		<ul className={style.list_items}>
 			<li>
