@@ -11,13 +11,13 @@ const Youtube = ({ title }) => {
 		//const proxy = `https://damp-plateau-34998.herokuapp.com/`;
 		const API = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&order=relevance&relevanceLanguage=en&q=${titleSearch}&key=${creds.key}`;
 
-		const getVideo = async () => {
+		const getVideo = async (API) => {
 			const res = await fetch(API);
 			const data = await res.json();
-			const url = `https://www.youtube.com/embed/${data.items[0].id.videoId}`;
+			const url = `https://www.youtube.com/embed/${data.items[0].id.videoId}`.parse();
 			setVideo({ url });
 		};
-		getVideo();
+		getVideo(API);
 	}, [titleSearch]);
 
 	return (

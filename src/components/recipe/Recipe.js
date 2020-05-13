@@ -13,7 +13,7 @@ const Recipe = ({ title, image, calories, servings, ingredients, time }) => {
 			<article>
 				<Title title={title} />
 				<StatsList servings={servings} time={time} calories={calories} />
-				<Video title={title} />
+				{/* <Video title={title} /> */}
 				<IngredientTable ingredients={ingredients} />
 			</article>
 		</div>
