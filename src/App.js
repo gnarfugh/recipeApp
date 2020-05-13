@@ -3,6 +3,7 @@ import Recipe from './components/recipe/Recipe';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faClock, faUsers, faWeight } from '@fortawesome/free-solid-svg-icons';
 import './App.css';
+require('dotenv').config();
 
 const App = () => {
 	const [recipes, setRecipes] = useState([]);
