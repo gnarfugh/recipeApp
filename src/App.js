@@ -15,12 +15,13 @@ const App = () => {
 			key: process.env.REACT_APP_EDAMAM_KEY,
 			ID: 'a886a42e',
 		};
-		//const proxy = `https://damp-plateau-34998.herokuapp.com/`;
+		//const proxy = `https://cors-anywhere.herokuapp.com/`;
 		const API = `https://api.edamam.com/search?q=${query}&app_id=${creds.ID}&app_key=${creds.key}`;
 		const getRecipes = async () => {
 			const res = await fetch(API);
 			const data = await res.json();
 			setRecipes(data.hits);
+			console.log(data.hits);
 		};
 		getRecipes();
 	}, [query]);

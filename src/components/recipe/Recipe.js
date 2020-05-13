@@ -9,35 +9,57 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 const Recipe = ({ title, image, calories, servings, ingredients, time }) => {
 	return (
 		<div className={style.recipe}>
-			<div className={style.image_container}>
-				<img src={image} alt={title} />
-			</div>
+			<ImageContainer image={image} title={title} />
 			<article>
-				<h1>{title}</h1>
-				<ul className={style.list_items}>
-					<li>
-						<FontAwesomeIcon icon='users' size='lg' />
-						{servings}
-					</li>
-					<li>
-						<FontAwesomeIcon icon='clock' size='lg' />
-						<Time time={time} />
-					</li>
-					<li>
-						<FontAwesomeIcon icon='weight' size='lg' />
-						<Calories calories={calories} servings={servings} />
-					</li>
-				</ul>
-				<div>
-					<Youtube title={title} />
-				</div>
-				<div className={style.ingredients_container}>
-					<h2>Ingredients</h2>
-					<ul>
-						<Ingredients ingredients={ingredients} />
-					</ul>
-				</div>
+				<Title title={title} />
+				<List servings={servings} time={time} calories={calories} />
+				<Video title={title} />
+				<IngredientTable ingredients={ingredients} />
 			</article>
+		</div>
+	);
+};
+
+const Title = ({ title }) => <h1>{title}</h1>;
+const ImageContainer = ({ image, title }) => {
+	return (
+		<div className={style.image_container}>
+			<img src={image} alt={title} />
+		</div>
+	);
+};
+const List = ({ servings, time, calories }) => {
+	return (
+		<ul className={style.list_items}>
+			<li>
+				<FontAwesomeIcon icon='users' size='lg' />
+				{servings}
+			</li>
+			<li>
+				<FontAwesomeIcon icon='clock' size='lg' />
+				<Time time={time} />
+			</li>
+			<li>
+				<FontAwesomeIcon icon='weight' size='lg' />
+				<Calories calories={calories} servings={servings} />
+			</li>
+		</ul>
+	);
+};
+const Video = ({ title }) => {
+	return (
+		<div>
+			<Youtube title={title} />
+		</div>
+	);
+};
+const IngredientTable = ({ ingredients }) => {
+	return (
+		<div className={style.ingredients_container}>
+			<h2>Ingredients</h2>
+			<ul>
+				<Ingredients ingredients={ingredients} />
+			</ul>
 		</div>
 	);
 };
