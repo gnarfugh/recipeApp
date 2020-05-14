@@ -1,23 +1,17 @@
 import React, { useState, useEffect } from 'react';
-
+import { getItem } from '../methods';
+const { yKey } = require('./config');
 const Youtube = ({ title }) => {
 	const [video, setVideo] = useState('');
 	let titleSearch = `How to make ${title} recipe`;
 
 	useEffect(() => {
-		const creds = {
-			key: process.env.REACT_APP_YOUTUBE_KEY,
-		};
 		//const proxy = `https://damp-plateau-34998.herokuapp.com/`;
-		const API = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&order=relevance&relevanceLanguage=en&q=${titleSearch}&key=${creds.key}`;
-
-		const getVideo = async (API) => {
-			const res = await fetch(API);
-			const data = await res.json();
-			const url = `https://www.youtube.com/embed/${data.items[0].id.videoId}`.parse();
+		const API = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&order=relevance&relevanceLanguage=en&q=${titleSearch}&key=${yKey}`;
+		getItem(API).then((res) => {
+			const url = `https://www.youtube.com/embed/${res.items[0].id.videoId}`;
 			setVideo({ url });
-		};
-		getVideo(API);
+		});
 	}, [titleSearch]);
 
 	return (
@@ -47,3 +41,12 @@ const Youtube = ({ title }) => {
 };
 
 export default Youtube;
+
+// 	const getVideo = async (API) => {
+// 		const res = await fetch(API);
+// 		const data = await res.json();
+// 		const url = `https://www.youtube.com/embed/${data.items[0].id.videoId}`;
+// 		setVideo({ url });
+// 	};
+// 	getVideo(API);
+// }, [titleSearch]);

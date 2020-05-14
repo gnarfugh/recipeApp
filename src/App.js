@@ -1,36 +1,31 @@
 import React, { useEffect, useState } from 'react';
 import Recipe from './components/recipe/Recipe';
+import { getItem } from './components/methods';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faClock, faUsers, faWeight } from '@fortawesome/free-solid-svg-icons';
 import './App.css';
-const { KEY } = require('./config');
+const { eKey, eId } = require('./config');
 
 const App = () => {
 	const [recipes, setRecipes] = useState([]);
 	const [query, setQuery] = useState('');
 	const [search, setSearch] = useState('');
+	//const [load, setLoad] = useState(false);
+	const [error, setError] = useState('');
+
 	library.add(faClock, faUsers, faWeight);
 
 	useEffect(() => {
-		//const proxy = `https://cors-anywhere.herokuapp.com/`;
-		const ID = `a886a42e`;
-		const API = `https://api.edamam.com/search?q=${query}&app_id=${ID}&app_key=${KEY}`;
-		const options = {
-			method: 'GET',
-			headers: {
-				Accept: 'application/json',
-				'Content-Type': 'application/json;charset=UTF-8',
-				'Access-Control-Allow-Headers': '*',
-			},
-		};
-
-		const getRecipes = async () => {
-			const res = await fetch(`${API}`, options);
-			const data = await res.json();
-			setRecipes(data.hits);
-			console.log(data.hits);
-		};
-		getRecipes();
+		const API = `https://api.edamam.com/search?q=${query}&app_id=${eId}&app_key=${eKey}`;
+		getItem(API)
+			.then((res) => {
+				setRecipes(res.hits);
+				//setLoad(true);
+			})
+			.catch((err) => {
+				setError(err);
+				///setLoad(true);
+			});
 	}, [query]);
 
 	const updateSearch = (e) => {
@@ -56,19 +51,23 @@ const App = () => {
 					Search
 				</button>
 			</form>
-			{recipes.map((recipe, i) => {
-				return (
-					<Recipe
-						key={i}
-						title={recipe.recipe.label}
-						calories={recipe.recipe.calories}
-						time={recipe.recipe.totalTime}
-						image={recipe.recipe.image}
-						ingredients={recipe.recipe.ingredients}
-						servings={recipe.recipe.yield}
-					/>
-				);
-			})}
+			{error ? (
+				<li>{error.message}</li>
+			) : (
+				recipes.map((recipe, i) => {
+					return (
+						<Recipe
+							key={i}
+							title={recipe.recipe.label}
+							calories={recipe.recipe.calories}
+							time={recipe.recipe.totalTime}
+							image={recipe.recipe.image}
+							ingredients={recipe.recipe.ingredients}
+							servings={recipe.recipe.yield}
+						/>
+					);
+				})
+			)}
 		</div>
 	);
 };
