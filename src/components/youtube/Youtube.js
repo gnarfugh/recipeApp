@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { getItem } from '../methods';
-const { yKey } = require('./config');
+const { yKey } = require('../../config');
+
 const Youtube = ({ title }) => {
 	const [video, setVideo] = useState('');
 	let titleSearch = `How to make ${title} recipe`;
