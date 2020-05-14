@@ -3,6 +3,7 @@ import Recipe from './components/recipe/Recipe';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faClock, faUsers, faWeight } from '@fortawesome/free-solid-svg-icons';
 import './App.css';
+const { KEY } = require('./config');
 
 const App = () => {
 	const [recipes, setRecipes] = useState([]);
@@ -11,22 +12,20 @@ const App = () => {
 	library.add(faClock, faUsers, faWeight);
 
 	useEffect(() => {
-		const creds = {
-			KEY: process.env.REACT_APP_EDAMAM_KEY,
-			ID: 'a886a42e',
-		};
-		const proxy = `https://cors-anywhere.herokuapp.com/`;
-		const API = `https://api.edamam.com/search?q=${query}&app_id=${creds.ID}&app_key=${creds.KEY}`;
+		//const proxy = `https://cors-anywhere.herokuapp.com/`;
+		const ID = `a886a42e`;
+		const API = `https://api.edamam.com/search?q=${query}&app_id=${ID}&app_key=${KEY}`;
 		const options = {
 			method: 'GET',
 			headers: {
 				Accept: 'application/json',
 				'Content-Type': 'application/json;charset=UTF-8',
+				'Access-Control-Allow-Headers': '*',
 			},
 		};
 
 		const getRecipes = async () => {
-			const res = await fetch(`${proxy}${API}`, options);
+			const res = await fetch(`${API}`, options);
 			const data = await res.json();
 			setRecipes(data.hits);
 			console.log(data.hits);
