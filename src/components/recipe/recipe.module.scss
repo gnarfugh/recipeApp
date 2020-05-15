@@ -79,13 +79,6 @@
 .recipe article ul li .icon {
 	vertical-align: bottom;
 }
-// .recipe article ul li span:nth-of-type(2) {
-// 	margin-left: 0.5em;
-// 	font-size: 0.8em;
-// 	font-weight: 300;
-// 	vertical-align: middle;
-// 	color: #838689;
-// }
 
 .recipe article h1,
 .recipe article h2 {
@@ -102,60 +95,27 @@
 .recipe article h2 {
 	font-size: 3em;
 }
-// .recipe article h2 {
-// 	font-size: 1.75em;
-// 	color: #222222;
-// }
-// .recipe article h3 {
-// 	font-size: 0.9375em;
-// 	color: #838689;
-// }
-// .recipe article p {
-// 	margin: 1.25em 0;
-// 	font-size: 0.8125em;
-// 	font-weight: 400;
-// 	color: #222222;
-// }
-// .recipe article p span {
-// 	font-weight: 700;
-// 	color: #000000;
-// }
-// .recipe article .ingredients {
-// 	margin: 2em 0 0.5em;
-// }
-// .recipe .icon {
-// 	display: inline;
-// 	display: inline-block;
-// 	background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/203277/recipe-icons.svg);
-// 	background-repeat: no-repeat;
-// }
-// .recipe .icon-calories,
-// .recipe .icon-calories\:regular {
-// 	background-position: 0 0;
-// 	width: 16px;
-// 	height: 19px;
-// }
+
 .recipe .icon-clock,
 .recipe .icon-clock\:regular {
 	background-position: 0 -19px;
 	width: 20px;
 	height: 20px;
 }
-// .recipe .icon-level,
-// .recipe .icon-level\:regular {
-// 	background-position: 0 -39px;
-// 	width: 16px;
-// 	height: 19px;
-// }
-// .recipe .icon-play,
-// .recipe .icon-play\:regular {
-// 	background-position: 0 -58px;
-// 	width: 21px;
-// 	height: 26px;
-// }
-// .recipe .icon-users,
-// .recipe .icon-users\:regular {
-// 	background-position: 0 -84px;
-// 	width: 18px;
-// 	height: 18px;
-// }
+
+.video_container {
+	background: #f7f2f2;
+	@include center;
+	color: white;
+	border: 1px solid lightcoral;
+	button {
+		background: lightcoral;
+		color: white;
+		padding: 2em;
+		margin: 5em;
+		font-size: 1em;
+		&:hover {
+			cursor: pointer;
+		}
+	}
+}

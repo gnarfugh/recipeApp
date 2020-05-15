@@ -15,6 +15,12 @@ const Youtube = ({ title }) => {
 		});
 	}, [titleSearch]);
 
+	return <VideoContainer title={title} video={video} />;
+};
+
+export default Youtube;
+
+const VideoContainer = ({ title, video }) => {
 	return (
 		<div
 			key={title}
@@ -36,18 +42,11 @@ const Youtube = ({ title }) => {
 				}}
 				src={video.url}
 				frameBorder='0'
+				allow='accelerometer;
+				gyroscope;
+				encrypted-media;
+				allowFullScreen'
 			/>
 		</div>
 	);
 };
-
-export default Youtube;
-
-// 	const getVideo = async (API) => {
-// 		const res = await fetch(API);
-// 		const data = await res.json();
-// 		const url = `https://www.youtube.com/embed/${data.items[0].id.videoId}`;
-// 		setVideo({ url });
-// 	};
-// 	getVideo(API);
-// }, [titleSearch]);

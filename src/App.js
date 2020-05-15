@@ -11,6 +11,7 @@ const App = () => {
 	const [query, setQuery] = useState('');
 	const [search, setSearch] = useState('');
 	//const [load, setLoad] = useState(false);
+
 	const [error, setError] = useState('');
 
 	library.add(faClock, faUsers, faWeight);
