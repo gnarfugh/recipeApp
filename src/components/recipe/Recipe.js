@@ -73,7 +73,7 @@ const IngredientTable = ({ ingredients }) => {
 		</div>
 	);
 };
-const VideoFake = ({ handleVideo, title }) => {
+const VideoFake = ({ handleVideo }) => {
 	return (
 		<div className={style.video_container}>
 			<button onClick={(e) => handleVideo(e)}>Watch Video</button>

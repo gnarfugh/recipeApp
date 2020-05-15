@@ -104,7 +104,14 @@
 }
 
 .video_container {
-	background: #f7f2f2;
+	background-image: repeating-linear-gradient(
+		-45deg,
+		rgba(143, 140, 140, 0.25),
+		rgba(255, 255, 255, 0.25) 1px,
+		transparent 1px,
+		transparent 6px
+	);
+	background-size: 8px 8px;
 	@include center;
 	color: white;
 	border: 1px solid lightcoral;
@@ -116,6 +123,17 @@
 		font-size: 1em;
 		&:hover {
 			cursor: pointer;
+		}
+	}
+}
+
+@media screen and (max-device-width: 568px) {
+	.list_items {
+		li {
+			flex-direction: column;
+			> * {
+				margin: 0.25em;
+			}
 		}
 	}
 }

@@ -2,7 +2,12 @@ import React, { useEffect, useState } from 'react';
 import Recipe from './components/recipe/Recipe';
 import { getItem } from './components/methods';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faClock, faUsers, faWeight } from '@fortawesome/free-solid-svg-icons';
+import {
+	faClock,
+	faUsers,
+	faWeight,
+	faUser,
+} from '@fortawesome/free-solid-svg-icons';
 import './App.css';
 const { eKey, eId } = require('./config');
 
@@ -14,7 +19,7 @@ const App = () => {
 
 	const [error, setError] = useState('');
 
-	library.add(faClock, faUsers, faWeight);
+	library.add(faClock, faUsers, faWeight, faUser);
 
 	useEffect(() => {
 		const API = `https://api.edamam.com/search?q=${query}&app_id=${eId}&app_key=${eKey}`;
@@ -46,7 +51,7 @@ const App = () => {
 					type='text'
 					value={search}
 					onChange={updateSearch}
-					placeholder='Search (chicken, soup, pasta, etc) ...'
+					placeholder='Search Food...'
 				/>
 				<button className='search-button' type='submit'>
 					Search

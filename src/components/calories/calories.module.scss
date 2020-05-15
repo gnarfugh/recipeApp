@@ -1,10 +1,13 @@
 .calories {
 	display: flex;
-	justify-content: center;
+	justify-content: flex-start;
 	align-items: center;
 	flex-direction: row;
 }
 .serving {
 	font-size: 0.6em;
 	font-style: italic;
+}
+.newCalories {
+	padding-right: 0.5em;
 }
