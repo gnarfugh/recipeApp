@@ -1,0 +1,35 @@
+.logo_container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 2em auto;
+}
+
+.logo {
+	width: 30%;
+}
+
+.st0 {
+	fill: #e28582;
+}
+.st1 {
+	display: none;
+	fill: #e28582;
+}
+.st2 {
+	fill: #752627;
+}
+.st3 {
+	display: none;
+	fill: #752627;
+}
+.st4 {
+	display: none;
+	fill: none;
+}
+
+@media screen and (max-device-width: 568px) {
+	.logo {
+		width: 80%;
+	}
+}

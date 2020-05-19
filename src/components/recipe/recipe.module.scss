@@ -24,6 +24,10 @@
 	box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
 	flex-direction: column;
 }
+svg path {
+	color: white;
+	fill: white;
+}
 
 .image_container,
 .image_container img {
@@ -55,14 +59,14 @@
 	flex: 1;
 	align-items: center;
 	list-style-type: none;
-	background: lightcoral;
+	background: #e28582;
 	padding: 0.5em 0;
 	color: white;
 	li {
 		@include center;
 		flex-direction: row;
 		&:nth-child(even) {
-			background: lightcoral;
+			background: #e28582;
 		}
 		> * {
 			margin: 0.5em;
@@ -114,13 +118,14 @@
 	background-size: 8px 8px;
 	@include center;
 	color: white;
-	border: 1px solid lightcoral;
+	border: 1px solid #e28582;
 	button {
-		background: lightcoral;
+		background: #e28582;
 		color: white;
 		padding: 2em;
 		margin: 5em;
 		font-size: 1em;
+		border: 0;
 		&:hover {
 			cursor: pointer;
 		}

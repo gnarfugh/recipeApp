@@ -1,0 +1,17 @@
+.loader {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 0 0 2em;
+	height: 6em;
+	width: 100%;
+	text-align: center;
+	padding: 1em;
+	margin: 0 auto 1em;
+	display: inline-block;
+	vertical-align: top;
+}
+svg path,
+svg rect {
+	fill: #e28582;
+}

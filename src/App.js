@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Recipe from './components/recipe/Recipe';
+import Logo from './components/logo/logo';
 import { getItem } from './components/methods';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import {
@@ -15,7 +16,6 @@ const App = () => {
 	const [recipes, setRecipes] = useState([]);
 	const [query, setQuery] = useState('');
 	const [search, setSearch] = useState('');
-	//const [load, setLoad] = useState(false);
 
 	const [error, setError] = useState('');
 
@@ -26,11 +26,10 @@ const App = () => {
 		getItem(API)
 			.then((res) => {
 				setRecipes(res.hits);
-				//setLoad(true);
+				setSearch('');
 			})
 			.catch((err) => {
 				setError(err);
-				///setLoad(true);
 			});
 	}, [query]);
 
@@ -45,6 +44,7 @@ const App = () => {
 
 	return (
 		<div className='App'>
+			<Logo />
 			<form onSubmit={getSearch} className='search-form'>
 				<input
 					className='search-bar'

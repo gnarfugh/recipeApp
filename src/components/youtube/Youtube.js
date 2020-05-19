@@ -1,21 +1,29 @@
 import React, { useState, useEffect } from 'react';
+import Loader from '../loader/loader';
 import { getItem } from '../methods';
 const { yKey } = require('../../config');
 
 const Youtube = ({ title }) => {
 	const [video, setVideo] = useState('');
+	const [isLoading, setIsLoading] = useState(false);
 	let titleSearch = `How to make ${title} recipe`;
 
 	useEffect(() => {
+		setIsLoading(true);
 		//const proxy = `https://damp-plateau-34998.herokuapp.com/`;
 		const API = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&order=relevance&relevanceLanguage=en&q=${titleSearch}&key=${yKey}`;
 		getItem(API).then((res) => {
 			const url = `https://www.youtube.com/embed/${res.items[0].id.videoId}`;
 			setVideo({ url });
+			setIsLoading(false);
 		});
 	}, [titleSearch]);
 
-	return <VideoContainer title={title} video={video} />;
+	return isLoading ? (
+		<Loader />
+	) : (
+		<VideoContainer title={title} video={video} />
+	);
 };
 
 export default Youtube;
