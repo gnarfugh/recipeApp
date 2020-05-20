@@ -1,7 +1,13 @@
 import React from 'react';
+import Rect from './Rect';
 import style from './loader.module.scss';
 
 const Loader = () => {
+	const rectObj = [
+		{ x: '0', begin: '0' },
+		{ x: '10', begin: '0.2s' },
+		{ x: '20', begin: '0.4s' },
+	];
 	return (
 		<div className={style.loader} title='4'>
 			<svg
@@ -16,42 +22,11 @@ const Loader = () => {
 				viewBox='0 0 24 30'
 				style={{ enableBackground: 'new 0 0 54 60' }}
 				xmlSpace='preserve'>
-				<rect x='0' y='0' width='4' height='10' fill='#333'>
-					<animateTransform
-						attributeType='xml'
-						attributeName='transform'
-						type='translate'
-						values='0 0; 0 20; 0 0'
-						begin='0'
-						dur='0.6s'
-						repeatCount='indefinite'
-					/>
-				</rect>
-				<rect x='10' y='0' width='4' height='10' fill='#333'>
-					<animateTransform
-						attributeType='xml'
-						attributeName='transform'
-						type='translate'
-						values='0 0; 0 20; 0 0'
-						begin='0.2s'
-						dur='0.6s'
-						repeatCount='indefinite'
-					/>
-				</rect>
-				<rect x='20' y='0' width='4' height='10' fill='#333'>
-					<animateTransform
-						attributeType='xml'
-						attributeName='transform'
-						type='translate'
-						values='0 0; 0 20; 0 0'
-						begin='0.4s'
-						dur='0.6s'
-						repeatCount='indefinite'
-					/>
-				</rect>
+				{rectObj.map((x) => {
+					return <Rect x={x.x} begin={x.begin} />;
+				})}
 			</svg>
 		</div>
 	);
 };
-
 export default Loader;

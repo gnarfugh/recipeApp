@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import Recipe from './components/recipe/Recipe';
-import Logo from './components/logo/logo';
-import { getItem } from './components/methods';
+import Logo from './components/logo/Logo';
+import Form from './components/form/Form';
+import { getItem } from './components/Methods';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import {
 	faClock,
@@ -45,18 +46,7 @@ const App = () => {
 	return (
 		<div className='App'>
 			<Logo />
-			<form onSubmit={getSearch} className='search-form'>
-				<input
-					className='search-bar'
-					type='text'
-					value={search}
-					onChange={updateSearch}
-					placeholder='Search Food...'
-				/>
-				<button className='search-button' type='submit'>
-					Search
-				</button>
-			</form>
+			<Form getSearch={getSearch} search={search} updateSearch={updateSearch} />
 			{error ? (
 				<li>{error.message}</li>
 			) : (

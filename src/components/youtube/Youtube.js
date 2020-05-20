@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import Loader from '../loader/loader';
-import { getItem } from '../methods';
+import Loader from '../loader/Loader';
+import { getItem } from '../Methods';
 const { yKey } = require('../../config');
 
 const Youtube = ({ title }) => {
