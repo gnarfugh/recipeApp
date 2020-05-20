@@ -4,9 +4,9 @@ import style from './loader.module.scss';
 
 const Loader = () => {
 	const rectObj = [
-		{ x: '0', begin: '0' },
-		{ x: '10', begin: '0.2s' },
-		{ x: '20', begin: '0.4s' },
+		{ id: 1, x: '0', begin: '0' },
+		{ id: 2, x: '10', begin: '0.2s' },
+		{ id: 3, x: '20', begin: '0.4s' },
 	];
 	return (
 		<div className={style.loader} title='4'>
@@ -23,7 +23,7 @@ const Loader = () => {
 				style={{ enableBackground: 'new 0 0 54 60' }}
 				xmlSpace='preserve'>
 				{rectObj.map((x) => {
-					return <Rect x={x.x} begin={x.begin} />;
+					return <Rect key={x.id} x={x.x} begin={x.begin} />;
 				})}
 			</svg>
 		</div>

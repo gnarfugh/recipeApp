@@ -15,7 +15,10 @@ const Youtube = ({ title }) => {
 		getItem(API).then((res) => {
 			const url = `https://www.youtube.com/embed/${res.items[0].id.videoId}`;
 			setVideo({ url });
-			setIsLoading(false);
+			const timer = setTimeout(() => {
+				setIsLoading(false);
+			}, 2000);
+			return () => clearTimeout(timer);
 		});
 	}, [titleSearch]);
 
@@ -53,7 +56,7 @@ const VideoContainer = ({ title, video }) => {
 				allow='accelerometer;
 				gyroscope;
 				encrypted-media;
-				allowFullScreen'
+				'
 			/>
 		</div>
 	);

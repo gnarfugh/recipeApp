@@ -20,6 +20,7 @@
 		"react": "^16.13.0",
 		"react-dom": "^16.13.0",
 		"react-scripts": "3.4.0",
+		"typeface-berkshire-swash": "0.0.72",
 		"typeface-roboto": "0.0.75",
 		"typeface-tangerine": "0.0.72",
 		"yarn": "^1.22.4"

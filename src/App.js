@@ -21,7 +21,14 @@ const App = () => {
 	const [error, setError] = useState('');
 
 	library.add(faClock, faUsers, faWeight, faUser);
+	const updateSearch = (e) => {
+		setSearch(e.target.value);
+	};
 
+	const getSearch = (e) => {
+		e.preventDefault();
+		setQuery(search);
+	};
 	useEffect(() => {
 		const API = `https://api.edamam.com/search?q=${query}&app_id=${eId}&app_key=${eKey}`;
 		getItem(API)
@@ -34,19 +41,11 @@ const App = () => {
 			});
 	}, [query]);
 
-	const updateSearch = (e) => {
-		setSearch(e.target.value);
-	};
-
-	const getSearch = (e) => {
-		e.preventDefault();
-		setQuery(search);
-	};
-
 	return (
 		<div className='App'>
 			<Logo />
 			<Form getSearch={getSearch} search={search} updateSearch={updateSearch} />
+
 			{error ? (
 				<li>{error.message}</li>
 			) : (

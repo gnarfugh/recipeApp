@@ -3,32 +3,36 @@
 	justify-content: center;
 	align-items: center;
 	margin: 2em auto;
+	font-family: 'Berkshire Swash';
+	h1 {
+		font-size: 4em;
+		color: #e28582;
+	}
 }
 
 .logo {
-	width: 30%;
+	display: block;
+	width: 100%;
+	//height: 50vmin;
+	/* set some maximum size (width and height need to match
+   * aspect ratio, 1:1 in this case */
+	max-width: 160px;
+	max-height: 121px;
 }
-
-.st0 {
+svg path {
+	color: #e28582;
 	fill: #e28582;
-}
-.st1 {
-	display: none;
-	fill: #e28582;
-}
-.st2 {
-	fill: #752627;
-}
-.st3 {
-	display: none;
-	fill: #752627;
-}
-.st4 {
-	display: none;
-	fill: none;
 }
 
 @media screen and (max-device-width: 568px) {
+	.logo_container {
+		transition: all ease-in 1s;
+		flex-direction: column;
+		h1 {
+			margin: 0.3em 0;
+			font-size: 2em;
+		}
+	}
 	.logo {
 		width: 80%;
 	}

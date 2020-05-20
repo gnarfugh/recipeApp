@@ -5,6 +5,7 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import 'typeface-roboto';
 import 'typeface-tangerine';
+import 'typeface-berkshire-swash';
 import '@fortawesome/fontawesome-svg-core';
 import '@fortawesome/react-fontawesome';
 import '@fortawesome/fontawesome-svg-core';
