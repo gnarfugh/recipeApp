@@ -23,7 +23,8 @@
 		"typeface-berkshire-swash": "0.0.72",
 		"typeface-roboto": "0.0.75",
 		"typeface-tangerine": "0.0.72",
-		"yarn": "^1.22.4"
+		"yarn": "^1.22.4",
+		"yarn.lock": "^0.0.1-security"
 	},
 	"scripts": {
 		"start": "react-scripts start",
