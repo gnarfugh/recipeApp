@@ -49,6 +49,7 @@
 	},
 	"devDependencies": {
 		"patch-package": "^6.2.2",
-		"postinstall-postinstall": "^2.1.0"
+		"postinstall-postinstall": "^2.1.0",
+		"webpack-hot-client": "^4.1.2"
 	}
 }
