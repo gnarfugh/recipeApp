@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Recipe from './components/recipe/Recipe';
 import Logo from './components/logo/Logo';
 import Form from './components/form/Form';
-import { getItem } from './components/methods';
+import { getItem } from './components/Methods';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import {
 	faClock,
