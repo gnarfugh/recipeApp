@@ -17,6 +17,7 @@ const App = () => {
 	const [query, setQuery] = useState('');
 	const [search, setSearch] = useState('');
 	const [error, setError] = useState('');
+	const scrollToTop = () => window.scrollTo(0, 0);
 
 	library.add(faClock, faUsers, faWeight, faUser);
 	const updateSearch = (e) => {
@@ -32,6 +33,7 @@ const App = () => {
 		getItem(API)
 			.then((res) => {
 				setRecipes(res.hits);
+				scrollToTop();
 				setSearch('');
 			})
 			.catch((err) => {
