@@ -10,7 +10,8 @@
 }
 .nHeader {
 	font-family: 'Berkshire Swash';
-	color: #67b562;
+	// color: #67b562;
+	color: #663333;
 }
 
 @media screen and (max-device-width: 568px) {
@@ -24,6 +25,6 @@
 	.nHeader {
 		padding-left: 0.6em;
 		font-size: 3em;
-		margin-bottom: 0.1em;
+		margin-bottom: 0em;
 	}
 }

@@ -16,7 +16,7 @@
 	width: 100%;
 	max-width: 600px;
 	@include border-radius(5px);
-	border-radius: 5px;
+	border-radius: 10px;
 	box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
 	flex-direction: column;
 }
@@ -57,6 +57,7 @@
 	list-style-type: none;
 	background: #e28582;
 	padding: 0.5em 0;
+	border-radius: 10px;
 	color: white;
 	li {
 		@include centered;
@@ -113,6 +114,7 @@
 		transparent 6px
 	);
 	background-size: 8px 8px;
+	border-radius: 10px;
 
 	color: white;
 	border: 1px solid #e28582;
@@ -123,6 +125,7 @@
 		margin: 5em;
 		font-size: 1em;
 		border: 0;
+		border-radius: 10px;
 		&:hover {
 			cursor: pointer;
 		}
