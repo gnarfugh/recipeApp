@@ -6,7 +6,7 @@ import style from './nav.module.scss';
 
 const Nav = ({ getSearch, search, updateSearch }) => {
 	const [scrollY, setScrollY] = useState(0);
-	const logScroll = () => setScrollY(window.pageYOffset >= 60);
+	const logScroll = () => setScrollY(window.pageYOffset >= 130);
 
 	useEffect(() => {
 		const addWatch = () => window.addEventListener('scroll', logScroll);

@@ -3,7 +3,11 @@
 .searchForm {
 	@include centered;
 	min-height: 10vh;
-	transition: 2s all;
+	> * {
+		transition: all 0.5s;
+		transition-timing-function: ease-in-out;
+		transition-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+	}
 }
 
 .searchBar {
@@ -42,8 +46,13 @@
 		border-radius: 10px;
 	}
 
+	.searchButton {
+		border-radius: 0px 10px 10px 0px;
+	}
+
 	.searchBar {
 		width: 53%;
+		border-radius: 10px 0 0 10px;
 	}
 	.padding_s {
 		padding: 1em 0.5em;

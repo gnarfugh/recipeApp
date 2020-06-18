@@ -1,8 +1,9 @@
 .App {
-	margin: 4em auto;
+	margin: 0 auto;
 	font-family: 'Roboto', sans-serif;
 }
 
 main {
-	top: 0px;
+	position: relative;
+	margin-top: 250px;
 }
