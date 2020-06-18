@@ -1,8 +1,8 @@
+@import '../styleImports/mixins.scss';
+
 .searchForm {
+	@include centered;
 	min-height: 10vh;
-	display: flex;
-	justify-content: center;
-	align-items: center;
 	transition: 2s all;
 }
 
@@ -31,6 +31,21 @@
 
 @media screen and (max-device-width: 568px) {
 	.searchForm {
-		min-height: 80px;
+		min-height: 70px;
+		margin: 0.5em;
+	}
+	.padding_n {
+		padding: 2em 1.6em;
+	}
+	.searchBar,
+	.searchButton {
+		border-radius: 10px;
+	}
+
+	.searchBar {
+		width: 53%;
+	}
+	.padding_s {
+		padding: 1em 0.5em;
 	}
 }

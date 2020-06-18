@@ -18,7 +18,7 @@ const Nav = ({ getSearch, search, updateSearch }) => {
 	return (
 		<div className={style.navWrapper}>
 			<div className={scrollY ? style.sticky : style.normal}>
-				<div className={style.logo_group}>
+				<div className={style.logoGroup}>
 					<Logo scroll={scrollY} />
 					<Header scroll={scrollY} />
 				</div>

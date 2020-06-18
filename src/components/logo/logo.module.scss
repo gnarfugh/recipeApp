@@ -1,3 +1,6 @@
+@import '../styleImports/variables.scss';
+@import '../styleImports/mixins.scss';
+
 .logo_container {
 	margin: 2em;
 	> * {
@@ -33,9 +36,14 @@
 	.logo_container {
 		transition: all ease-in 0.5s;
 		flex-direction: column;
+		margin: 0;
+		margin-bottom: 0.5em;
 		h1 {
 			margin: 0.3em 0;
 			font-size: 2em;
 		}
+	}
+	.width_n {
+		width: 6em;
 	}
 }

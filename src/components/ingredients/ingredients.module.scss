@@ -1,7 +1,8 @@
+@import '../styleImports/variables.scss';
+@import '../styleImports/mixins.scss';
+
 .ingredients {
-	display: flex;
-	justify-content: center;
-	align-items: center;
+	@include centered;
 	flex-direction: row;
 	font-size: 1em;
 	border: 1px solid #e5e5e5;

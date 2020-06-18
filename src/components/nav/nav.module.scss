@@ -1,30 +1,8 @@
-//mixins for media q's
-@mixin bp($class) {
-	@if $class==xs {
-		@media (max-width: 767px) {
-			@content;
-		}
-	} @else if $class==sm {
-		@media (min-width: 768px) {
-			@content;
-		}
-	} @else if $class==md {
-		@media (min-width: 992px) {
-			@content;
-		}
-	} @else if $class==lg {
-		@media (min-width: 1200px) {
-			@content;
-		}
-	} @else {
-		@warn "Breakpoint mixin supports: xs, sm, md, lg";
-	}
-}
+@import '../styleImports/variables.scss';
+@import '../styleImports/mixins.scss';
 
-.logo_group {
-	display: flex;
-	justify-content: center;
-	align-items: center;
+.logoGroup {
+	@include centered;
 	flex-direction: row;
 }
 
@@ -33,7 +11,8 @@ h1 {
 }
 
 .navWrapper {
-	height: auto;
+	height: 80px;
+	position: relative;
 }
 
 //sticky for nav
@@ -55,10 +34,12 @@ h1 {
 }
 
 @media screen and (max-device-width: 568px) {
-	.logo_group {
-		flex-direction: column;
+	.logoGroup {
+		flex-direction: row;
+		align-items: flex-end;
 	}
 	.sticky {
 		height: 80px;
+		justify-content: space-evenly;
 	}
 }

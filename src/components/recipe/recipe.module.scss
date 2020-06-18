@@ -1,9 +1,5 @@
-@mixin center {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex: 1;
-}
+@import '../styleImports/variables.scss';
+@import '../styleImports/mixins.scss';
 
 @mixin border-radius($val) {
 	border-top-left-radius: $val;
@@ -13,7 +9,7 @@
 }
 
 .recipe {
-	@include center;
+	@include centered;
 	background: #fffbfb;
 	margin: 4em auto;
 	padding: 0.5em;
@@ -63,7 +59,7 @@
 	padding: 0.5em 0;
 	color: white;
 	li {
-		@include center;
+		@include centered;
 		flex-direction: row;
 		&:nth-child(even) {
 			background: #e28582;
@@ -76,7 +72,7 @@
 
 .ingredients_container {
 	h2 {
-		@include center;
+		@include centered;
 	}
 }
 
@@ -86,7 +82,7 @@
 
 .recipe article h1,
 .recipe article h2 {
-	@include center;
+	@include centered;
 	font-family: 'Tangerine', cursive;
 	font-weight: 300;
 	text-align: center;
@@ -108,6 +104,7 @@
 }
 
 .video_container {
+	@include centered;
 	background-image: repeating-linear-gradient(
 		-45deg,
 		rgba(143, 140, 140, 0.25),
@@ -116,7 +113,7 @@
 		transparent 6px
 	);
 	background-size: 8px 8px;
-	@include center;
+
 	color: white;
 	border: 1px solid #e28582;
 	button {

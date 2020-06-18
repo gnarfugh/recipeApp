@@ -1,7 +1,7 @@
+@import '../styleImports/mixins.scss';
+
 .time {
-	display: flex;
-	justify-content: center;
-	align-items: center;
+	@include centered;
 	flex-direction: row;
 	h2 {
 		padding-right: 1em;

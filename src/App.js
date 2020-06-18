@@ -16,6 +16,7 @@ const App = () => {
 	const [recipes, setRecipes] = useState([]);
 	const [query, setQuery] = useState('');
 	const [search, setSearch] = useState('');
+	const [searched, setSearched] = useState(false);
 
 	const [error, setError] = useState('');
 
@@ -32,7 +33,7 @@ const App = () => {
 		const API = `https://api.edamam.com/search?q=${query}&app_id=${eId}&app_key=${eKey}`;
 		getItem(API)
 			.then((res) => {
-				console.log(res.hits);
+				setSearched(true);
 				setRecipes(res.hits);
 				setSearch('');
 			})
@@ -43,7 +44,12 @@ const App = () => {
 
 	return (
 		<div className='App'>
-			<Nav getSearch={getSearch} search={search} updateSearch={updateSearch} />
+			<Nav
+				getSearch={getSearch}
+				search={search}
+				updateSearch={updateSearch}
+				gotSearched={searched}
+			/>
 			<main>
 				{error ? (
 					<li>{error.message}</li>

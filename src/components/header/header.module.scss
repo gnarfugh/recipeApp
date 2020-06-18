@@ -1,13 +1,29 @@
+@import '../styleImports/variables.scss';
+@import '../styleImports/mixins.scss';
+
+.headerContainer_n {
+	@include centered;
+	width: 53%;
+}
 .sHeader {
 	display: none;
 }
 .nHeader {
 	font-family: 'Berkshire Swash';
-	color: #e28582;
+	color: #67b562;
 }
 
 @media screen and (max-device-width: 568px) {
 	h1 {
-		margin-top: 0;
+		margin-top: 2em;
+		margin-bottom: 0;
+	}
+	.headerContainer_s {
+		width: 0;
+	}
+	.nHeader {
+		padding-left: 0.6em;
+		font-size: 3em;
+		margin-bottom: 0.1em;
 	}
 }
