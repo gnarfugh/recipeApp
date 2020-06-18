@@ -17,7 +17,7 @@ const App = () => {
 	const [query, setQuery] = useState('');
 	const [search, setSearch] = useState('');
 	const [error, setError] = useState('');
-	const scrollToTop = () => window.scrollTo(0, 0);
+	const scrollToTop = () => window.scrollTo(250, 250);
 
 	library.add(faClock, faUsers, faWeight, faUser);
 	const updateSearch = (e) => {
