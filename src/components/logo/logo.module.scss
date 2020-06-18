@@ -1,39 +1,41 @@
 .logo_container {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	margin: 2em auto;
-	font-family: 'Berkshire Swash';
-	h1 {
-		font-size: 4em;
-		color: #e28582;
+	margin: 2em;
+	> * {
+		transition: all 0.5s;
+		transition-timing-function: ease-in-out;
+		transition-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
 	}
 }
 
-.logo {
-	display: block;
-	width: 100%;
-	//height: 50vmin;
-	/* set some maximum size (width and height need to match
-   * aspect ratio, 1:1 in this case */
-	max-width: 160px;
-	max-height: 121px;
+.width_s {
+	width: 4em;
 }
-svg path {
-	color: #e28582;
+
+.width_n {
+	width: 8.5em;
+}
+.svg_container {
+	display: inline-block;
+	position: relative;
+	width: 100%;
+	vertical-align: middle;
+	overflow: hidden;
+}
+
+.logo_path_color {
 	fill: #e28582;
+}
+.logo_path_white {
+	fill: #fff;
 }
 
 @media screen and (max-device-width: 568px) {
 	.logo_container {
-		transition: all ease-in 1s;
+		transition: all ease-in 0.5s;
 		flex-direction: column;
 		h1 {
 			margin: 0.3em 0;
 			font-size: 2em;
 		}
-	}
-	.logo {
-		width: 80%;
 	}
 }

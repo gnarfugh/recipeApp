@@ -1,0 +1,64 @@
+//mixins for media q's
+@mixin bp($class) {
+	@if $class==xs {
+		@media (max-width: 767px) {
+			@content;
+		}
+	} @else if $class==sm {
+		@media (min-width: 768px) {
+			@content;
+		}
+	} @else if $class==md {
+		@media (min-width: 992px) {
+			@content;
+		}
+	} @else if $class==lg {
+		@media (min-width: 1200px) {
+			@content;
+		}
+	} @else {
+		@warn "Breakpoint mixin supports: xs, sm, md, lg";
+	}
+}
+
+.logo_group {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: row;
+}
+
+h1 {
+	font-size: 4em;
+}
+
+.navWrapper {
+	height: auto;
+}
+
+//sticky for nav
+.sticky {
+	transition: 0.5s;
+	display: flex;
+	padding-left: 0;
+	margin: 0 auto;
+	justify-content: space-between;
+	box-shadow: 0px 22px 25px -22px rgba(0, 0, 0, 0.48);
+	position: fixed;
+	width: 100%;
+	z-index: 100;
+	height: 80px;
+	background: #e28582;
+	top: 0;
+	transition-timing-function: ease-in-out;
+	transition-timing-function: cubic-bezier(0.42, 0, 0.58, 0.5);
+}
+
+@media screen and (max-device-width: 568px) {
+	.logo_group {
+		flex-direction: column;
+	}
+	.sticky {
+		height: 80px;
+	}
+}

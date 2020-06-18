@@ -1,0 +1,13 @@
+.sHeader {
+	display: none;
+}
+.nHeader {
+	font-family: 'Berkshire Swash';
+	color: #e28582;
+}
+
+@media screen and (max-device-width: 568px) {
+	h1 {
+		margin-top: 0;
+	}
+}

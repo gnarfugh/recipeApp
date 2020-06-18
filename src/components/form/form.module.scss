@@ -1,0 +1,36 @@
+.searchForm {
+	min-height: 10vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: 2s all;
+}
+
+.searchBar {
+	width: 50%;
+	border: none;
+	font-size: 1em;
+	border-radius: 5px 0 0 5px;
+}
+
+.searchButton {
+	background: #e28582;
+	border: none;
+	color: white;
+	font-size: 1em;
+	border-radius: 0 5px 5px 0;
+}
+
+.padding_s {
+	padding: 1em;
+	border: 1px solid white;
+}
+.padding_n {
+	padding: 2em;
+}
+
+@media screen and (max-device-width: 568px) {
+	.searchForm {
+		min-height: 80px;
+	}
+}

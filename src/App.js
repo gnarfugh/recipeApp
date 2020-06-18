@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Recipe from './components/recipe/Recipe';
-import Logo from './components/logo/Logo';
-import Form from './components/form/Form';
+import Nav from './components/nav/Nav';
 import { getItem } from './components/Methods';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import {
@@ -33,6 +32,7 @@ const App = () => {
 		const API = `https://api.edamam.com/search?q=${query}&app_id=${eId}&app_key=${eKey}`;
 		getItem(API)
 			.then((res) => {
+				console.log(res.hits);
 				setRecipes(res.hits);
 				setSearch('');
 			})
@@ -43,26 +43,26 @@ const App = () => {
 
 	return (
 		<div className='App'>
-			<Logo />
-			<Form getSearch={getSearch} search={search} updateSearch={updateSearch} />
-
-			{error ? (
-				<li>{error.message}</li>
-			) : (
-				recipes.map((recipe, i) => {
-					return (
-						<Recipe
-							key={i}
-							title={recipe.recipe.label}
-							calories={recipe.recipe.calories}
-							time={recipe.recipe.totalTime}
-							image={recipe.recipe.image}
-							ingredients={recipe.recipe.ingredients}
-							servings={recipe.recipe.yield}
-						/>
-					);
-				})
-			)}
+			<Nav getSearch={getSearch} search={search} updateSearch={updateSearch} />
+			<main>
+				{error ? (
+					<li>{error.message}</li>
+				) : (
+					recipes.map((recipe, i) => {
+						return (
+							<Recipe
+								key={i}
+								title={recipe.recipe.label}
+								calories={recipe.recipe.calories}
+								time={recipe.recipe.totalTime}
+								image={recipe.recipe.image}
+								ingredients={recipe.recipe.ingredients}
+								servings={recipe.recipe.yield}
+							/>
+						);
+					})
+				)}
+			</main>
 		</div>
 	);
 };
