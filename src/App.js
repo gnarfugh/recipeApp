@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Recipe from './components/recipe/Recipe';
 import Nav from './components/nav/Nav';
 import { getItem } from './components/Methods';
+//import Loader from './components/loader/Loader';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import {
 	faClock,
