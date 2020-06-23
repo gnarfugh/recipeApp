@@ -20,6 +20,7 @@
 		"react": "^16.13.0",
 		"react-dom": "^16.13.0",
 		"react-scripts": "3.4.0",
+		"serve": "^11.3.2",
 		"typeface-berkshire-swash": "0.0.72",
 		"typeface-roboto": "0.0.75",
 		"typeface-tangerine": "0.0.72",
@@ -27,10 +28,12 @@
 		"yarn.lock": "^0.0.1-security"
 	},
 	"scripts": {
-		"start": "react-scripts start",
+		"dev": "react-scripts start",
+		"start": "serve -s build",
 		"build": "react-scripts build",
-		"test": "react-scripts test",
-		"eject": "react-scripts eject"
+		"test": "react-scripts test --env=jsdom",
+		"eject": "react-scripts eject",
+		"heroku-postbuild": "npm run build"
 	},
 	"eslintConfig": {
 		"extends": "react-app"

@@ -1,21 +1,15 @@
 @import '../styleImports/variables.scss';
 @import '../styleImports/mixins.scss';
 
-@mixin border-radius($val) {
-	border-top-left-radius: $val;
-	border-top-right-radius: $val;
-	border-bottom-left-radius: $val;
-	border-bottom-right-radius: $val;
-}
-
 .recipe {
+	opacity: 1;
 	@include centered;
 	background: #fffbfb;
 	margin: 4em auto;
 	padding: 0.5em;
 	width: 100%;
 	max-width: 600px;
-	@include border-radius(5px);
+	border-radius: 5px;
 	border-radius: 10px;
 	box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
 	flex-direction: column;

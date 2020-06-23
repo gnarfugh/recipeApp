@@ -2,7 +2,6 @@
 
 .searchForm {
 	@include centered;
-	min-height: 10vh;
 	> * {
 		transition: all 0.5s;
 		transition-timing-function: ease-in-out;
