@@ -9,10 +9,21 @@
 
 main {
 	position: relative;
-	margin-top: 185px;
+	margin-top: 250px;
 	overflow-x: hidden;
+	display: flex;
+	justify-content: space-around;
+	align-items: flex-start;
+	flex-wrap: wrap;
 }
 .loader_container {
 	position: relative;
 	margin-top: 250px;
+}
+
+@media screen and (max-device-width: 568px) {
+	main {
+		display: block;
+		margin-top: 185px;
+	}
 }

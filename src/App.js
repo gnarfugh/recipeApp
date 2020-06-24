@@ -19,6 +19,8 @@ const App = () => {
 	const [search, setSearch] = useState('');
 	const [error, setError] = useState('');
 	const [isLoading, setIsLoading] = useState(false);
+	const [scrollY, setScrollY] = useState(0);
+	const logScroll = () => setScrollY(window.pageYOffset >= 130);
 	const scrollToTop = () => window.scrollTo(250, 250);
 
 	library.add(faClock, faUsers, faWeight, faUser);
@@ -45,15 +47,27 @@ const App = () => {
 			});
 	}, [query]);
 
+	useEffect(() => {
+		const addWatch = () => window.addEventListener('scroll', logScroll);
+		const removeWatch = () => window.removeEventListener('scroll', logScroll);
+		addWatch();
+		return () => removeWatch();
+	}, []);
+
 	return (
 		<div className='App'>
-			<Nav getSearch={getSearch} search={search} updateSearch={updateSearch} />
+			<Nav
+				getSearch={getSearch}
+				search={search}
+				updateSearch={updateSearch}
+				scroll={scrollY}
+			/>
 			{isLoading ? (
 				<div className='loader_container'>
 					<Loader className='loader' />
 				</div>
 			) : (
-				<main>
+				<main className={`${scrollY ? `main_s` : ''}`}>
 					{error ? (
 						<li>{error.message}</li>
 					) : (
@@ -67,6 +81,7 @@ const App = () => {
 									image={recipe.recipe.image}
 									ingredients={recipe.recipe.ingredients}
 									servings={recipe.recipe.yield}
+									scroll={scrollY}
 								/>
 							);
 						})

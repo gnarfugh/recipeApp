@@ -6,7 +6,15 @@ import Youtube from '../youtube/Youtube';
 import style from './recipe.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-const Recipe = ({ title, image, calories, servings, ingredients, time }) => {
+const Recipe = ({
+	title,
+	image,
+	calories,
+	servings,
+	ingredients,
+	time,
+	scroll,
+}) => {
 	const [showVideo, setShowVideo] = useState(false);
 
 	const handleVideo = (e) => {
@@ -15,7 +23,7 @@ const Recipe = ({ title, image, calories, servings, ingredients, time }) => {
 	};
 
 	return (
-		<div className={style.recipe}>
+		<div className={`${style.recipe} ${scroll ? style.recipe_s : ''}`}>
 			<ImageContainer image={image} title={title} />
 			<article>
 				<Title title={title} />

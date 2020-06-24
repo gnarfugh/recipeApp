@@ -1,29 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Logo from '../logo/Logo';
 import Header from '../header/Header';
 import Form from '../form/Form';
 import style from './nav.module.scss';
 
-const Nav = ({ getSearch, search, updateSearch }) => {
-	const [scrollY, setScrollY] = useState(0);
-	const logScroll = () => setScrollY(window.pageYOffset >= 130);
-
-	useEffect(() => {
-		const addWatch = () => window.addEventListener('scroll', logScroll);
-		const removeWatch = () => window.removeEventListener('scroll', logScroll);
-		addWatch();
-		return () => removeWatch();
-	}, []);
-
+const Nav = ({ getSearch, search, updateSearch, scroll }) => {
 	return (
 		<div className={style.navWrapper}>
-			<div className={scrollY ? style.sticky : style.normal}>
+			<div className={scroll ? style.sticky : style.normal}>
 				<div className={style.logoGroup}>
-					<Logo scroll={scrollY} />
-					<Header scroll={scrollY} />
+					<Logo scroll={scroll} />
+					<Header scroll={scroll} />
 				</div>
 				<Form
-					scroll={scrollY}
+					scroll={scroll}
 					getSearch={getSearch}
 					search={search}
 					updateSearch={updateSearch}
