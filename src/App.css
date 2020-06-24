@@ -9,7 +9,8 @@
 
 main {
 	position: relative;
-	margin-top: 250px;
+	margin-top: 185px;
+	overflow-x: hidden;
 }
 .loader_container {
 	position: relative;
