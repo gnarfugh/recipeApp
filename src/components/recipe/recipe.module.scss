@@ -25,6 +25,13 @@
 	fill: white;
 }
 
+.title {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 5.5em;
+}
+
 .image_container,
 .image_container img {
 	display: block;
@@ -145,5 +152,9 @@
 				margin: 0.25em;
 			}
 		}
+	}
+	.title {
+		display: block;
+		height: auto;
 	}
 }

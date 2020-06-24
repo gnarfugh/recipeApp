@@ -38,7 +38,11 @@ const Recipe = ({
 		</div>
 	);
 };
-const Title = ({ title }) => <h1>{title}</h1>;
+const Title = ({ title }) => (
+	<div className={style.title}>
+		<h1>{title}</h1>
+	</div>
+);
 const ImageContainer = ({ image, title }) => {
 	return (
 		<div className={style.image_container}>

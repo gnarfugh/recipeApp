@@ -9,12 +9,18 @@
 
 main {
 	position: relative;
-	margin-top: 250px;
 	overflow-x: hidden;
 	display: flex;
 	justify-content: space-around;
 	align-items: flex-start;
 	flex-wrap: wrap;
+	margin: 0 2em;
+	margin-top: 250px;
+}
+
+main::after {
+	content: '';
+	flex: auto;
 }
 .loader_container {
 	position: relative;
@@ -24,6 +30,7 @@ main {
 @media screen and (max-device-width: 568px) {
 	main {
 		display: block;
+		margin: 0;
 		margin-top: 185px;
 	}
 }
