@@ -78,17 +78,18 @@
 .recipe article h1,
 .recipe article h2 {
 	@include centered;
-	font-family: 'Tangerine', cursive;
-	font-weight: 300;
+	font-family: 'Roboto', cursive;
+	font-weight: 600;
 	text-align: center;
+	color: #663333;
 }
 .recipe article h1 {
-	font-size: 3.5em;
+	font-size: 2.5em;
 	margin: 0;
 }
 
 .recipe article h2 {
-	font-size: 3em;
+	font-size: 1.5em;
 }
 
 .recipe .icon-clock,

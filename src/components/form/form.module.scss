@@ -2,6 +2,7 @@
 
 .searchForm {
 	@include centered;
+	margin-right: 2.5em;
 	> * {
 		transition: all 0.5s;
 		transition-timing-function: ease-in-out;
@@ -10,11 +11,16 @@
 }
 
 .searchBar {
-	width: 50%;
+	width: 40%;
 	border: none;
 	font-size: 1em;
 	border-radius: 5px 0 0 5px;
 	box-shadow: none;
+	-webkit-appearance: none;
+}
+
+.searchBar_s {
+	width: 60em;
 }
 
 .searchButton {
@@ -37,6 +43,11 @@
 	.searchForm {
 		min-height: 70px;
 		margin: 0.5em;
+	}
+	.searchForm_s {
+		margin-right: 0;
+		min-height: 70px;
+		justify-content: flex-end;
 	}
 	.padding_n {
 		padding: 2em 1.6em;

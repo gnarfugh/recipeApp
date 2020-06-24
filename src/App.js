@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Recipe from './components/recipe/Recipe';
 import Nav from './components/nav/Nav';
 import { getItem } from './components/Methods';
-//import Loader from './components/loader/Loader';
+import Loader from './components/loader/Loader';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import {
 	faClock,
@@ -18,6 +18,7 @@ const App = () => {
 	const [query, setQuery] = useState('');
 	const [search, setSearch] = useState('');
 	const [error, setError] = useState('');
+	const [isLoading, setIsLoading] = useState(false);
 	const scrollToTop = () => window.scrollTo(250, 250);
 
 	library.add(faClock, faUsers, faWeight, faUser);
@@ -27,12 +28,14 @@ const App = () => {
 
 	const getSearch = (e) => {
 		e.preventDefault();
+		setIsLoading(true);
 		setQuery(search);
 	};
 	useEffect(() => {
 		const API = `https://api.edamam.com/search?q=${query}&app_id=${eId}&app_key=${eKey}`;
 		getItem(API)
 			.then((res) => {
+				setIsLoading(false);
 				setRecipes(res.hits);
 				scrollToTop();
 				setSearch('');
@@ -45,25 +48,31 @@ const App = () => {
 	return (
 		<div className='App'>
 			<Nav getSearch={getSearch} search={search} updateSearch={updateSearch} />
-			<main>
-				{error ? (
-					<li>{error.message}</li>
-				) : (
-					recipes.map((recipe, i) => {
-						return (
-							<Recipe
-								key={i}
-								title={recipe.recipe.label}
-								calories={recipe.recipe.calories}
-								time={recipe.recipe.totalTime}
-								image={recipe.recipe.image}
-								ingredients={recipe.recipe.ingredients}
-								servings={recipe.recipe.yield}
-							/>
-						);
-					})
-				)}
-			</main>
+			{isLoading ? (
+				<div className='loader_container'>
+					<Loader className='loader' />
+				</div>
+			) : (
+				<main>
+					{error ? (
+						<li>{error.message}</li>
+					) : (
+						recipes.map((recipe, i) => {
+							return (
+								<Recipe
+									key={i}
+									title={recipe.recipe.label}
+									calories={recipe.recipe.calories}
+									time={recipe.recipe.totalTime}
+									image={recipe.recipe.image}
+									ingredients={recipe.recipe.ingredients}
+									servings={recipe.recipe.yield}
+								/>
+							);
+						})
+					)}
+				</main>
+			)}
 		</div>
 	);
 };

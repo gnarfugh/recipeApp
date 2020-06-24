@@ -4,7 +4,9 @@ import style from './form.module.scss';
 const Form = ({ scroll, getSearch, search, updateSearch }) => {
 	return (
 		<React.Fragment>
-			<form onSubmit={getSearch} className={style.searchForm}>
+			<form
+				onSubmit={getSearch}
+				className={`${style.searchForm} ${scroll ? style.searchForm_s : ''}`}>
 				<input
 					className={`${style.searchBar} ${
 						scroll ? style.padding_s : style.padding_n
