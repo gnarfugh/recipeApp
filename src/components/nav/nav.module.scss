@@ -37,10 +37,12 @@ h1 {
 	.logoGroup {
 		flex-direction: row;
 		align-items: flex-end;
-		margin-bottom: 0.5em;
 	}
 	.sticky {
 		height: 80px;
 		justify-content: space-evenly;
+		> * {
+			margin: 0.5em;
+		}
 	}
 }

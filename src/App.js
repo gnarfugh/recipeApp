@@ -21,7 +21,8 @@ const App = () => {
 	const [isLoading, setIsLoading] = useState(false);
 	const [scrollY, setScrollY] = useState(0);
 	const logScroll = () => setScrollY(window.pageYOffset >= 130);
-	const scrollToTop = () => window.scrollTo(250, 250);
+	const scrollToTop = () => window.scrollTo(315, 315);
+	const notScroll = scrollY === false;
 
 	library.add(faClock, faUsers, faWeight, faUser);
 	const updateSearch = (e) => {
@@ -62,7 +63,7 @@ const App = () => {
 				updateSearch={updateSearch}
 				scroll={scrollY}
 			/>
-			{isLoading ? (
+			{isLoading && notScroll ? (
 				<div className='loader_container'>
 					<Loader className='loader' />
 				</div>
