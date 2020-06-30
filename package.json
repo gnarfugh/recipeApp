@@ -52,6 +52,7 @@
 		]
 	},
 	"devDependencies": {
+		"netlify-cli": "^2.54.0",
 		"patch-package": "^6.2.2",
 		"postinstall-postinstall": "^2.1.0",
 		"webpack-hot-client": "^4.1.2"
