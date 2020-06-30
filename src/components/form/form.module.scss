@@ -34,6 +34,9 @@
 		border-radius: 10px 0 0 10px;
 		box-shadow: none;
 	}
+	@include bp(sm) {
+		width: 18em;
+	}
 }
 
 .searchButton {

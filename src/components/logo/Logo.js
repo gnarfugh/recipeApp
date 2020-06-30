@@ -21,7 +21,7 @@ const Logo = ({ scroll }) => {
 				style.width_s,
 				style.width_n
 			)}`}>
-			<a href={'/'}>
+			<a href={'/'} rel='noreferrer'>
 				<div className={style.svg_container}>
 					<svg
 						className={style.logo}

@@ -29,11 +29,13 @@ const Recipe = ({
 				<Title title={title} />
 				<StatsList servings={servings} time={time} calories={calories} />
 				<IngredientTable ingredients={ingredients} />
-				{showVideo ? (
-					<Video title={title} />
-				) : (
-					<VideoFake handleVideo={handleVideo} onChange={handleVideo} />
-				)}
+				<VideoContainer
+					showVideo={showVideo}
+					handleVideo={handleVideo}
+					onChange={handleVideo}
+					title={title}
+					scroll={scroll}
+				/>
 			</article>
 		</div>
 	);
@@ -85,10 +87,17 @@ const IngredientTable = ({ ingredients }) => {
 		</div>
 	);
 };
-const VideoFake = ({ handleVideo }) => {
+const VideoContainer = ({ handleVideo, showVideo, title }) => {
 	return (
-		<div className={style.video_container}>
-			<button onClick={(e) => handleVideo(e)}>Watch Video</button>
+		<div
+			className={` ${style.video_container} ${
+				showVideo ? style.video_container_clicked : ''
+			}`}>
+			{showVideo ? (
+				<Video title={title} />
+			) : (
+				<button onClick={(e) => handleVideo(e)}>Watch Video</button>
+			)}
 		</div>
 	);
 };

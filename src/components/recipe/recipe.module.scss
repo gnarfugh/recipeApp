@@ -18,6 +18,10 @@
 		flex: 1;
 		width: 100%;
 	}
+	@include bp(sm) {
+		margin: 1em;
+		width: 50%;
+	}
 }
 
 // .recipe_s {
@@ -135,9 +139,12 @@
 		transparent 1px,
 		transparent 6px
 	);
+	transition-timing-function: ease-in-out;
+	transition-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+	position: relative;
+	height: 16em;
 	background-size: 8px 8px;
 	border-radius: 10px;
-
 	color: white;
 	border: 1px solid #e28582;
 	button {
@@ -152,4 +159,8 @@
 			cursor: pointer;
 		}
 	}
+}
+.video_container_clicked {
+	background-color: black;
+	background-image: none;
 }

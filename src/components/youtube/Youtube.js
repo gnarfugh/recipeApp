@@ -37,10 +37,10 @@ const VideoContainer = ({ title, video }) => {
 			key={title}
 			className='video'
 			style={{
-				position: 'relative',
 				paddingBottom: '56.25%' /* 16:9 */,
 				paddingTop: 25,
 				height: 0,
+				borderRadius: '5px',
 			}}>
 			<iframe
 				title={title}
@@ -50,6 +50,7 @@ const VideoContainer = ({ title, video }) => {
 					left: 0,
 					width: '100%',
 					height: '100%',
+					borderRadius: '5px',
 				}}
 				src={video.url}
 				frameBorder='0'
