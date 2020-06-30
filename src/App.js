@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import Recipe from './components/recipe/Recipe';
 import Nav from './components/nav/Nav';
 import { getItem } from './components/Methods';
@@ -20,7 +20,6 @@ const App = () => {
 	const [error, setError] = useState('');
 	const [isLoading, setIsLoading] = useState(false);
 	const [scrollY, setScrollY] = useState(0);
-	const isMounted = useRef(false);
 	const logScroll = () => setScrollY(window.pageYOffset >= 130);
 	const scrollToTop = () => window.scrollTo(315, 315);
 	const notScroll = scrollY === false;
@@ -37,7 +36,7 @@ const App = () => {
 	};
 	useEffect(() => {
 		const API = `https://api.edamam.com/search?q=${query}&app_id=${eId}&app_key=${eKey}`;
-		if (isMounted.current) {
+		if (query) {
 			getItem(API)
 				.then((res) => {
 					console.log(res.hits);
@@ -53,12 +52,10 @@ const App = () => {
 	}, [query]);
 
 	useEffect(() => {
-		if (isMounted.current) {
-			const addWatch = () => window.addEventListener('scroll', logScroll);
-			const removeWatch = () => window.removeEventListener('scroll', logScroll);
-			addWatch();
-			return () => removeWatch();
-		}
+		const addWatch = () => window.addEventListener('scroll', logScroll);
+		const removeWatch = () => window.removeEventListener('scroll', logScroll);
+		addWatch();
+		return () => removeWatch();
 	}, []);
 
 	return (
