@@ -7,10 +7,19 @@
 		transition-timing-function: ease-in-out;
 		transition-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
 	}
+	@include bp(xs) {
+		min-height: 70px;
+		margin: 0.5em;
+	}
 }
 
 .searchForm_s {
 	margin-right: 2.5em;
+	@include bp(xs) {
+		margin-right: 0;
+		min-height: 70px;
+		justify-content: flex-end;
+	}
 }
 
 .searchBar {
@@ -20,6 +29,11 @@
 	border-radius: 5px 0 0 5px;
 	box-shadow: none;
 	-webkit-appearance: none;
+	@include bp(xs) {
+		width: 53%;
+		border-radius: 10px 0 0 10px;
+		box-shadow: none;
+	}
 }
 
 .searchButton {
@@ -28,44 +42,22 @@
 	color: white;
 	font-size: 1em;
 	border-radius: 0 5px 5px 0;
+	@include bp(xs) {
+		border-radius: 0px 10px 10px 0px;
+	}
 }
 
 .padding_s {
 	padding: 1em;
 	border: 1px solid white;
+	@include bp(xs) {
+		padding: 1em 0.5em;
+	}
 }
+
 .padding_n {
 	padding: 2em;
-}
-
-@media screen and (max-device-width: 568px) {
-	.searchForm {
-		min-height: 70px;
-		margin: 0.5em;
-	}
-	.searchForm_s {
-		margin-right: 0;
-		min-height: 70px;
-		justify-content: flex-end;
-	}
-	.padding_n {
+	@include bp(xs) {
 		padding: 2em 1.6em;
-	}
-	.searchBar,
-	.searchButton {
-		border-radius: 10px;
-	}
-
-	.searchButton {
-		border-radius: 0px 10px 10px 0px;
-	}
-
-	.searchBar {
-		width: 53%;
-		border-radius: 10px 0 0 10px;
-		box-shadow: none;
-	}
-	.padding_s {
-		padding: 1em 0.5em;
 	}
 }

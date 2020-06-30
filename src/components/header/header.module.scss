@@ -8,28 +8,12 @@
 		transition-timing-function: ease-in-out;
 		transition-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
 	}
-}
-.sHeader {
-	color: white;
-	font-size: 2em;
-	padding: 0;
-	font-family: 'Berkshire Swash';
-}
-.nHeader {
-	font-family: 'Berkshire Swash';
-	// color: #67b562;
-	color: #663333;
-}
-
-@media screen and (max-device-width: 568px) {
-	h1 {
-		margin-top: 2em;
-		margin-bottom: 0;
-	}
-	.headerContainer_n {
+	@include bp(xs) {
 		width: 53%;
 	}
-	.headerContainer_s {
+}
+.headerContainer_s {
+	@include bp(xs) {
 		width: 0;
 		> * {
 			transition: all 0.5s;
@@ -37,12 +21,29 @@
 			transition-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
 		}
 	}
-	.nHeader {
+}
+.sHeader {
+	color: white;
+	font-size: 2em;
+	padding: 0;
+	font-family: 'Berkshire Swash';
+	@include bp(xs) {
+		display: none;
+	}
+}
+.nHeader {
+	font-family: 'Berkshire Swash';
+	// color: #67b562;
+	color: #663333;
+	@include bp(xs) {
 		padding-left: 0.4em;
 		font-size: 2.5em;
 		margin-bottom: 0em;
 	}
-	.sHeader {
-		display: none;
+}
+h1 {
+	@include bp(xs) {
+		margin-top: 2em;
+		margin-bottom: 0;
 	}
 }

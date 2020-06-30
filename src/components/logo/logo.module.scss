@@ -8,6 +8,15 @@
 		transition-timing-function: ease-in-out;
 		transition-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
 	}
+	@include bp(xs) {
+		transition: all ease-in 0.5s;
+		flex-direction: column;
+		margin: 0;
+		h1 {
+			margin: 0.3em 0;
+			font-size: 2em;
+		}
+	}
 }
 
 .width_s {
@@ -17,6 +26,9 @@
 
 .width_n {
 	width: 8.5em;
+	@include bp(xs) {
+		width: 6em;
+	}
 }
 .svg_container {
 	display: inline-block;
@@ -31,19 +43,4 @@
 }
 .logo_path_white {
 	fill: #fff;
-}
-
-@media screen and (max-device-width: 568px) {
-	.logo_container {
-		transition: all ease-in 0.5s;
-		flex-direction: column;
-		margin: 0;
-		h1 {
-			margin: 0.3em 0;
-			font-size: 2em;
-		}
-	}
-	.width_n {
-		width: 6em;
-	}
 }
