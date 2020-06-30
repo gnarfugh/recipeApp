@@ -39,7 +39,6 @@ const App = () => {
 		if (query) {
 			getItem(API)
 				.then((res) => {
-					console.log(res.hits);
 					setIsLoading(false);
 					setRecipes(res.hits);
 					scrollToTop();
