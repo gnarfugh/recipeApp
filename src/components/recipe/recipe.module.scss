@@ -82,6 +82,7 @@
 		}
 		> * {
 			margin: 0.5em;
+			margin-right: 0.2em;
 		}
 		@include bp(xs) {
 			flex-direction: column;
