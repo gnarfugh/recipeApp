@@ -1,6 +1,5 @@
 import React from '../../../node_modules/react';
 import style from './calories.module.scss';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Calories = ({ calories, servings }) => {
 	const addCommas = (x) => x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
