@@ -4,9 +4,7 @@
 .logo_container {
 	margin: 2em;
 	> * {
-		transition: all 0.5s;
-		transition-timing-function: ease-in-out;
-		transition-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+		@include animate;
 	}
 	@include bp(xs) {
 		transition: all ease-in 0.5s;

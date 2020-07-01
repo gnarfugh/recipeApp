@@ -11,9 +11,7 @@ const Calories = ({ calories, servings }) => {
 			<span className={style.newCalories}>{newCalories}</span>
 			<div className={style.calorieMetrics}>
 				<span className={style.serving}>cal.</span>
-				<span className={style.serving}>
-					/ <FontAwesomeIcon icon='user' size='lg' />
-				</span>
+				<span className={style.serving}></span>
 			</div>
 		</div>
 	);

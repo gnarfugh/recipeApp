@@ -18,10 +18,6 @@ main {
 	margin-top: 250px;
 }
 
-main::after {
-	content: '';
-	flex: auto;
-}
 .loader_container {
 	position: relative;
 	margin-top: 250px;

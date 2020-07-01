@@ -5,10 +5,11 @@
 	opacity: 1;
 	@include centered;
 	background: #fffbfb;
+	transition-timing-function: ease-in-out;
+	transition-timing-function: cubic-bezier(0.42, 0, 0.58, 2);
 	margin: 4em auto;
 	padding: 0.5em;
 	max-width: 600px;
-	border-radius: 5px;
 	border-radius: 10px;
 	box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
 	flex-direction: column;
@@ -23,11 +24,6 @@
 		width: 50%;
 	}
 }
-
-// .recipe_s {
-// 	flex: 1 1 30%;
-// 	width: 33%;
-// }
 .recipe svg path {
 	color: white;
 	fill: white;
@@ -109,7 +105,7 @@
 .recipe article h1,
 .recipe article h2 {
 	@include centered;
-	font-family: 'Roboto', cursive;
+	font-family: 'Roboto', sans-serif;
 	font-weight: 600;
 	text-align: center;
 	color: #663333;
@@ -139,8 +135,6 @@
 		transparent 1px,
 		transparent 6px
 	);
-	transition-timing-function: ease-in-out;
-	transition-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
 	position: relative;
 	height: 16em;
 	background-size: 8px 8px;
