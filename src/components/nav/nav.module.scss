@@ -41,4 +41,7 @@ h1 {
 			margin: 0.5em;
 		}
 	}
+	@include bp(sm) {
+		padding: 0 1em;
+	}
 }

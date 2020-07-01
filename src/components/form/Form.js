@@ -9,7 +9,7 @@ const Form = ({ scroll, getSearch, search, updateSearch }) => {
 				className={`${style.searchForm} ${scroll ? style.searchForm_s : ''}`}>
 				<input
 					className={`${style.searchBar} ${
-						scroll ? style.padding_s : style.padding_n
+						scroll ? style.searchBar_s : style.searchBar_n
 					}`}
 					type='text'
 					value={search}
@@ -18,7 +18,7 @@ const Form = ({ scroll, getSearch, search, updateSearch }) => {
 				/>
 				<button
 					className={`${style.searchButton} ${
-						scroll ? style.padding_s : style.padding_n
+						scroll ? style.searchButton_s : style.searchButton_n
 					}`}
 					type='submit'>
 					Search
