@@ -3,6 +3,7 @@
 
 .error_container {
 	@include centered;
+	@include animate;
 	flex-direction: column;
 	font-family: 'Berkshire Swash';
 	h2 {

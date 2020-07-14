@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useReducer } from 'react';
+import { initialStates, searchReducer } from './components/searchReducer';
 import Recipe from './components/recipe/Recipe';
 import Nav from './components/nav/Nav';
 import { getItem, scrollToTop } from './components/Methods';
@@ -16,71 +17,36 @@ import {
 import './App.css';
 const { eKey, eId } = require('./config');
 
-// const initialStates = {
-// 	recipes: [],
-// 	query: '',
-// 	isLoading: false,
-// 	search: '',
-// 	error: '',
-// 	noResults: false,
-// 	scrollY: 0,
-// };
-
-// const searchReducer = (state = '', action) => {
-// 	switch (action.type) {
-// 		case 'searched': {
-// 			return {
-// 				...state,
-// 				isLoading: false,
-// 			};
-// 		}
-// 		default:
-// 			break;
-// 	}
-// 	return state;
-// };
-
 const App = () => {
-	//const [state, dispatch] = useReducer(searchReducer, initialStates);
-	//const { isLoading } = state;
-	const [recipes, setRecipes] = useState([]);
-	const [query, setQuery] = useState('');
-	const [search, setSearch] = useState('');
-	//const [error, setError] = useState('');
-	const [noResults, setNoResults] = useState(false);
-	const [isLoading, setIsLoading] = useState(false);
+	const [state, dispatch] = useReducer(searchReducer, initialStates);
+	const { isLoading, search, query, recipes, noResults } = state;
 	const [scrollY, setScrollY] = useState(0);
-
-	const logScroll = () => setScrollY(window.pageYOffset >= 130);
 	const notScroll = scrollY === false;
-	const updateSearch = (e) => setSearch(e.target.value);
+
+	//Fns
+	const logScroll = () => setScrollY(window.pageYOffset >= 130);
+	const updateSearch = (e) => {
+		dispatch({ type: 'UPDATE_SEARCH', payload: e.target.value });
+	};
 	const getSearch = (e) => {
 		e.preventDefault();
-		// dispatch({ type: 'searched' });
-		setIsLoading(true);
-		setQuery(search);
+		dispatch({ type: 'GET_SEARCH', payload: search });
 	};
+	const fetchSuccess = (res) => {
+		dispatch({ type: 'FETCH_SUCCESS', payload: res.hits });
+		scrollToTop();
+	};
+	const fetchFail = () => dispatch({ type: 'FETCH_FAIL' });
 
 	library.add(faClock, faUsers, faWeight, faUser, faFrown);
 
 	useEffect(() => {
 		const API = `https://api.edamam.com/search?q=${query}&app_id=${eId}&app_key=${eKey}`;
 		if (query !== '') {
-			setNoResults(false);
+			dispatch({ type: 'YES_RESULTS' });
 			getItem(API)
 				.then((res) => {
-					if (res.count === 0) {
-						setIsLoading(false);
-						setNoResults(true);
-						setSearch('');
-						return;
-					} else {
-						// dispatch({ type: 'searched' });
-						setIsLoading(false);
-						setRecipes(res.hits);
-						scrollToTop();
-						setSearch('');
-					}
+					res.count === 0 ? fetchFail() : fetchSuccess(res);
 				})
 				.catch((error) => {
 					console.log(error);
