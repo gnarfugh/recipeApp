@@ -17,12 +17,12 @@ const Ingredients = ({ ingredients }) => {
 			<ul>
 				{newIngredients.map((ingredient, i) => {
 					return (
-						<React.Fragment key={i}>
-							<li>
+						<>
+							<li key={i}>
 								{ingredient.text}
 								<span>({ingredient.weight})</span>
 							</li>
-						</React.Fragment>
+						</>
 					);
 				})}
 			</ul>

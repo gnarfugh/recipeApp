@@ -1,0 +1,12 @@
+@import '../styleImports/variables.scss';
+@import '../styleImports/mixins.scss';
+
+.error_container {
+	@include centered;
+	flex-direction: column;
+	font-family: 'Berkshire Swash';
+	h2 {
+		font-size: 2em;
+		color: #663333;
+	}
+}
