@@ -3,7 +3,7 @@ import axios from 'axios';
 export const callAll = (...fns) => (...args) =>
 	fns.forEach((fn) => fn && fn(...args));
 
-export const getItem = async (url) => {
+export const getAPI = async (url) => {
 	return axios
 		.get(url)
 		.then((res) => {

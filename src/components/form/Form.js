@@ -3,7 +3,7 @@ import style from './form.module.scss';
 
 const Form = ({ scroll, getSearch, search, updateSearch }) => {
 	return (
-		<React.Fragment>
+		<>
 			<form
 				onSubmit={getSearch}
 				className={`${style.searchForm} ${scroll ? style.searchForm_s : ''}`}>
@@ -24,7 +24,7 @@ const Form = ({ scroll, getSearch, search, updateSearch }) => {
 					Search
 				</button>
 			</form>
-		</React.Fragment>
+		</>
 	);
 };
 

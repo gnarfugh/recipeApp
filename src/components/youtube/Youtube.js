@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Loader from '../loader/Loader';
-import { getItem } from '../Methods';
+import { getAPI } from '../Methods';
 const { yKey } = require('../../config');
 
 const Youtube = ({ title }) => {
@@ -12,7 +12,7 @@ const Youtube = ({ title }) => {
 		setIsLoading(true);
 		//const proxy = `https://damp-plateau-34998.herokuapp.com/`;
 		const API = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&order=relevance&relevanceLanguage=en&q=${titleSearch}&key=${yKey}`;
-		getItem(API).then((res) => {
+		getAPI(API).then((res) => {
 			const url = `https://www.youtube.com/embed/${res.items[0].id.videoId}`;
 			setVideo({ url });
 			const timer = setTimeout(() => {

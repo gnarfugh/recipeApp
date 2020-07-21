@@ -1,12 +1,11 @@
 import React, { useEffect, useState, useReducer } from 'react';
-import { initialStates, searchReducer } from './components/searchReducer';
 import Recipe from './components/recipe/Recipe';
 import Nav from './components/nav/Nav';
-import { getItem, scrollToTop } from './components/Methods';
 import Loader from './components/loader/Loader';
 import Error from './components/error/Error';
+import { getAPI, scrollToTop } from './components/Methods';
 import { library } from '@fortawesome/fontawesome-svg-core';
-
+import { initialStates, searchReducer } from './components/searchReducer';
 import {
 	faClock,
 	faUsers,
@@ -16,14 +15,16 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import './App.css';
 const { eKey, eId } = require('./config');
+library.add(faClock, faUsers, faWeight, faUser, faFrown);
 
 const App = () => {
+	//Get States
 	const [state, dispatch] = useReducer(searchReducer, initialStates);
 	const { isLoading, search, query, recipes, noResults } = state;
 	const [scrollY, setScrollY] = useState(0);
-	const notScroll = scrollY === false;
+	const notScroll = scrollY === 0;
 
-	//Fns
+	//Get States Fns
 	const logScroll = () => setScrollY(window.pageYOffset >= 130);
 	const updateSearch = (e) => {
 		dispatch({ type: 'UPDATE_SEARCH', payload: e.target.value });
@@ -37,16 +38,20 @@ const App = () => {
 		scrollToTop();
 	};
 	const fetchFail = () => dispatch({ type: 'FETCH_FAIL' });
+	const yesResults = () => dispatch({ type: 'YES_RESULTS' });
 
-	library.add(faClock, faUsers, faWeight, faUser, faFrown);
-
+	//Get Data List from API
 	useEffect(() => {
-		const API = `https://api.edamam.com/search?q=${query}&app_id=${eId}&app_key=${eKey}`;
+		let showRecipesOrNoResults = (res) => {
+			res.count === 0 ? fetchFail() : fetchSuccess(res);
+		};
+		let API = `https://api.edamam.com/search?q=${query}&app_id=${eId}&app_key=${eKey}`;
+
 		if (query !== '') {
-			dispatch({ type: 'YES_RESULTS' });
-			getItem(API)
-				.then((res) => {
-					res.count === 0 ? fetchFail() : fetchSuccess(res);
+			yesResults();
+			getAPI(API)
+				.then((results) => {
+					showRecipesOrNoResults(results);
 				})
 				.catch((error) => {
 					console.log(error);
@@ -54,13 +59,15 @@ const App = () => {
 		}
 	}, [query]);
 
+	//Get Scroll Position
 	useEffect(() => {
 		const addWatch = () => window.addEventListener('scroll', logScroll);
 		const removeWatch = () => window.removeEventListener('scroll', logScroll);
 		addWatch();
 		return () => removeWatch();
-	}, []);
+	}, [query]);
 
+	//Get App Template
 	return (
 		<div className='App'>
 			<Nav
@@ -69,28 +76,30 @@ const App = () => {
 				updateSearch={updateSearch}
 				scroll={scrollY}
 			/>
+
+			{/*-- Show Loader --*/}
 			{isLoading && notScroll ? (
 				<div className='loader_container'>
 					<Loader className='loader' />
 				</div>
 			) : (
 				<main className={`${scrollY ? `main_s` : ''}`}>
+					{/*--  {Show Error or Recipes} --*/}
 					{noResults ? (
 						<Error />
 					) : (
 						recipes.map((recipe, i) => {
-							return (
-								<Recipe
-									key={i}
-									title={recipe.recipe.label}
-									calories={recipe.recipe.calories}
-									time={recipe.recipe.totalTime}
-									image={recipe.recipe.image}
-									ingredients={recipe.recipe.ingredients}
-									servings={recipe.recipe.yield}
-									scroll={scrollY}
-								/>
-							);
+							let props = {
+								key: i,
+								title: recipe.recipe.label,
+								calories: recipe.recipe.calories,
+								time: recipe.recipe.totalTime,
+								image: recipe.recipe.image,
+								ingredients: recipe.recipe.ingredients,
+								servings: recipe.recipe.yield,
+								scroll: scrollY,
+							};
+							return <Recipe {...props} />;
 						})
 					)}
 				</main>
