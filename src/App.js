@@ -54,7 +54,7 @@ const App = () => {
 					showRecipesOrNoResults(results);
 				})
 				.catch((error) => {
-					console.log(error);
+					fetchFail(error);
 				});
 		}
 	}, [query]);
