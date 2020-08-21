@@ -43,7 +43,12 @@ const App = () => {
 	//Get Data List from API
 	useEffect(() => {
 		let showRecipesOrNoResults = (res) => {
-			res.count === 0 ? fetchFail() : fetchSuccess(res);
+			if (res.count === 0) {
+				fetchFail();
+			} else {
+				fetchSuccess(res);
+				localStorage.setItem(query, JSON.stringify(res));
+			}
 		};
 		let API = `https://api.edamam.com/search?q=${query}&app_id=${eId}&app_key=${eKey}`;
 		let storedQuery = JSON.parse(localStorage.getItem(query));
@@ -53,7 +58,6 @@ const App = () => {
 			getAPI(API)
 				.then((results) => {
 					showRecipesOrNoResults(results);
-					localStorage.setItem(query, JSON.stringify(results));
 				})
 				.catch((error) => {
 					fetchFail(error);
