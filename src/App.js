@@ -46,16 +46,21 @@ const App = () => {
 			res.count === 0 ? fetchFail() : fetchSuccess(res);
 		};
 		let API = `https://api.edamam.com/search?q=${query}&app_id=${eId}&app_key=${eKey}`;
+		let storedQuery = JSON.parse(localStorage.getItem(query));
 
 		if (query !== '') {
 			yesResults();
 			getAPI(API)
 				.then((results) => {
 					showRecipesOrNoResults(results);
+					localStorage.setItem(query, JSON.stringify(results));
 				})
 				.catch((error) => {
 					fetchFail(error);
 				});
+		}
+		if (query === storedQuery) {
+			showRecipesOrNoResults(storedQuery);
 		}
 	}, [query]);
 

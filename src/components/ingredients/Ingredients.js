@@ -17,12 +17,10 @@ const Ingredients = ({ ingredients }) => {
 			<ul>
 				{newIngredients.map((ingredient, i) => {
 					return (
-						<>
-							<li key={i}>
-								{ingredient.text}
-								<span>({ingredient.weight})</span>
-							</li>
-						</>
+						<li key={i}>
+							{ingredient.text}
+							<span>({ingredient.weight})</span>
+						</li>
 					);
 				})}
 			</ul>
