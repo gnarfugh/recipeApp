@@ -22,7 +22,7 @@ const App = () => {
 	const [state, dispatch] = useReducer(searchReducer, initialStates);
 	const { isLoading, search, query, recipes, noResults } = state;
 	const [scrollY, setScrollY] = useState(0);
-	const notScroll = scrollY === 0;
+	const notScroll = scrollY === false;
 
 	//Get States Fns
 	const logScroll = () => setScrollY(window.pageYOffset >= 130);
