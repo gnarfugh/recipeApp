@@ -50,10 +50,11 @@ const App = () => {
 				localStorage.setItem(query, JSON.stringify(res));
 			}
 		};
-		let API = `https://api.edamam.com/search?q=${query}&app_id=${eId}&app_key=${eKey}`;
-		let storedQuery = JSON.parse(localStorage.getItem(query));
 
-		if (query !== '') {
+		let API = `https://api.edamam.com/search?q=${query}&app_id=${eId}&app_key=${eKey}`;
+		const getLocalStorageInc = (q) => Object.keys(localStorage).includes(q);
+
+		if (query !== '' && !getLocalStorageInc(query)) {
 			yesResults();
 			getAPI(API)
 				.then((results) => {
@@ -62,9 +63,9 @@ const App = () => {
 				.catch((error) => {
 					fetchFail(error);
 				});
-		}
-		if (query === storedQuery) {
-			showRecipesOrNoResults(storedQuery);
+		} else if (query !== '' && getLocalStorageInc(query)) {
+			yesResults();
+			fetchSuccess(JSON.parse(localStorage.getItem(query)));
 		}
 	}, [query]);
 
