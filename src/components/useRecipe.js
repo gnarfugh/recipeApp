@@ -33,19 +33,24 @@ const useRecipe = () => {
 		let API = `https://api.edamam.com/search?q=${query}&app_id=${eId}&app_key=${eKey}`;
 		const getLocalStorageInc = (q) => Object.keys(localStorage).includes(q);
 
-		if (query !== '' && !getLocalStorageInc(query)) {
-			yesResults();
-			getAPI(API)
-				.then((results) => {
-					showRecipesOrNoResults(results);
-				})
-				.catch((error) => {
-					fetchFail(error);
-				});
-		} else if (query !== '' && getLocalStorageInc(query)) {
-			yesResults();
-			fetchSuccess(JSON.parse(localStorage.getItem(query)));
-		}
+		const timer = setTimeout(() => {
+			if (query !== '' && !getLocalStorageInc(query)) {
+				yesResults();
+				getAPI(API)
+					.then((results) => {
+						showRecipesOrNoResults(results);
+					})
+					.catch((error) => {
+						fetchFail(error);
+					});
+			} else if (query !== '' && getLocalStorageInc(query)) {
+				yesResults();
+				fetchSuccess(JSON.parse(localStorage.getItem(query)));
+			}
+		}, 1000);
+		return () => {
+			clearTimeout(timer);
+		};
 	}, [query]);
 
 	return {

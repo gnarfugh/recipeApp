@@ -27,7 +27,7 @@ const App = () => {
 		query,
 	} = useRecipe(null);
 	const { scrollY } = useScroll(query);
-	const notScroll = scrollY === false;
+	const notScroll = scrollY === 0;
 
 	//Get App Template
 	return (
