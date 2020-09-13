@@ -17,7 +17,6 @@ import './App.css';
 library.add(faClock, faUsers, faWeight, faUser, faFrown);
 
 const App = () => {
-	//Get States
 	const {
 		updateSearch,
 		getSearch,
