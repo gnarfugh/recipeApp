@@ -46,7 +46,6 @@ const useRecipe = () => {
 			yesResults();
 			fetchSuccess(JSON.parse(localStorage.getItem(query)));
 		}
-		console.log('ran');
 	}, [query]);
 
 	return {
