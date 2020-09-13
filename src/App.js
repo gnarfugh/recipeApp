@@ -27,7 +27,7 @@ const App = () => {
 		query,
 	} = useRecipe(null);
 	const { scrollY } = useScroll(query);
-	const notScroll = scrollY === 0;
+	const notScroll = scrollY > 130;
 
 	//Get App Template
 	return (
@@ -37,10 +37,11 @@ const App = () => {
 				search={search}
 				updateSearch={updateSearch}
 				scroll={scrollY}
+				notScroll={notScroll}
 			/>
 
 			{/*-- Show Loader --*/}
-			{isLoading && notScroll ? (
+			{isLoading ? (
 				<div className='loader_container'>
 					<Loader className='loader' />
 				</div>
