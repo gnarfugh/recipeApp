@@ -3,7 +3,7 @@ import Loader from '../loader/Loader';
 import useYoutube from '../useYoutube';
 
 const Youtube = ({ title }) => {
-	const { video, isLoading } = useYoutube(title);
+	const { video, isLoading } = useYoutube({ title });
 
 	return isLoading ? (
 		<Loader />

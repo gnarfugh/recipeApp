@@ -47,7 +47,7 @@ const useRecipe = () => {
 				yesResults();
 				fetchSuccess(JSON.parse(localStorage.getItem(query)));
 			}
-		}, 1000);
+		}, 800);
 		return () => {
 			clearTimeout(timer);
 		};
