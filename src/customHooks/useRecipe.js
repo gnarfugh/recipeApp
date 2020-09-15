@@ -1,6 +1,6 @@
 import { useEffect, useReducer } from 'react';
-import { initialStates, searchReducer } from './searchReducer';
-import { getAPI, scrollToTop } from './Methods';
+import { initialStates, searchReducer } from '../components/searchReducer';
+import { getAPI, scrollToTop } from '../components/Methods';
 const { eKey, eId } = require('../config');
 
 const useRecipe = () => {
@@ -33,24 +33,20 @@ const useRecipe = () => {
 		let API = `https://api.edamam.com/search?q=${query}&app_id=${eId}&app_key=${eKey}`;
 		const getLocalStorageInc = (q) => Object.keys(localStorage).includes(q);
 
-		const timer = setTimeout(() => {
-			if (query !== '' && !getLocalStorageInc(query)) {
-				yesResults();
-				getAPI(API)
-					.then((results) => {
-						showRecipesOrNoResults(results);
-					})
-					.catch((error) => {
-						fetchFail(error);
-					});
-			} else if (query !== '' && getLocalStorageInc(query)) {
-				yesResults();
-				fetchSuccess(JSON.parse(localStorage.getItem(query)));
-			}
-		}, 800);
-		return () => {
-			clearTimeout(timer);
-		};
+		if (query !== '' && !getLocalStorageInc(query)) {
+			yesResults();
+			getAPI(API)
+				.then((results) => {
+					showRecipesOrNoResults(results);
+				})
+				.catch((error) => {
+					fetchFail(error);
+				});
+		} else if (query !== '' && getLocalStorageInc(query)) {
+			yesResults();
+			fetchSuccess(JSON.parse(localStorage.getItem(query)));
+		}
+		console.log('ran');
 	}, [query]);
 
 	return {

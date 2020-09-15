@@ -1,6 +1,6 @@
 import React from 'react';
 import Loader from '../loader/Loader';
-import useYoutube from '../useYoutube';
+import useYoutube from '../../customHooks/useYoutube';
 
 const Youtube = ({ title }) => {
 	const { video, isLoading } = useYoutube({ title });

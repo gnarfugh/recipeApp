@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { getAPI } from './Methods';
+import { getAPI } from '../components/Methods';
 const { yKey } = require('../config');
 
 const useYoutube = ({ title }) => {
@@ -15,9 +15,10 @@ const useYoutube = ({ title }) => {
 			setVideo({ url });
 			const timer = setTimeout(() => {
 				setIsLoading(false);
-			}, 2000);
+			}, 800);
 			return () => {
 				clearTimeout(timer);
+				setVideo('');
 			};
 		});
 	}, [titleSearch]);

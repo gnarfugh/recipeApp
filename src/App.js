@@ -3,8 +3,7 @@ import Recipe from './components/recipe/Recipe';
 import Nav from './components/nav/Nav';
 import Loader from './components/loader/Loader';
 import Error from './components/error/Error';
-import useRecipe from './components/useRecipe';
-import useScroll from './components/useScroll';
+import { useRecipe, useScroll } from './customHooks';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import {
 	faClock,
