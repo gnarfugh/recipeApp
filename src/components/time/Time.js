@@ -2,9 +2,15 @@ import React from '../../../node_modules/react';
 import style from './time.module.scss';
 
 const Time = ({ time }) => {
-	const minutes = (m) => Math.floor(m % 60);
-	const ifTimeExist = (time) => (time === 0 ? 'N/A' : timeString(time));
-	const timeString = (time) => `${minutes(time)} minutes`;
+	const ifTimeExist = (time) => {
+		if (time === 0) {
+			return `Not Provided`;
+		} else if (time <= 60) {
+			return `${time} mins`;
+		} else {
+			return `${Math.floor(time / 60)} hrs ${time % 60} mins`;
+		}
+	};
 
 	return (
 		<div className={style.time}>
