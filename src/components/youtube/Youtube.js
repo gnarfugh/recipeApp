@@ -5,11 +5,7 @@ import useYoutube from '../../customHooks/useYoutube';
 const Youtube = ({ title }) => {
 	const { video, isLoading } = useYoutube({ title });
 
-	return isLoading ? (
-		<Loader />
-	) : (
-		<VideoContainer title={title} video={video} />
-	);
+	return isLoading ? <Loader /> : <VideoContainer title={title} video={video} />;
 };
 
 export default Youtube;

@@ -1,7 +1,9 @@
 import axios from 'axios';
 
-export const callAll = (...fns) => (...args) =>
-	fns.forEach((fn) => fn && fn(...args));
+export const callAll =
+	(...fns) =>
+	(...args) =>
+		fns.forEach((fn) => fn && fn(...args));
 
 export const getAPI = async (url) => {
 	return axios

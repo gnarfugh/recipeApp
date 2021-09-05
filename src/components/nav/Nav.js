@@ -12,12 +12,7 @@ const Nav = ({ getSearch, search, updateSearch, scroll }) => {
 					<Logo scroll={scroll} />
 					<Header scroll={scroll} />
 				</div>
-				<Form
-					scroll={scroll}
-					getSearch={getSearch}
-					search={search}
-					updateSearch={updateSearch}
-				/>
+				<Form scroll={scroll} getSearch={getSearch} search={search} updateSearch={updateSearch} />
 			</div>
 		</div>
 	);

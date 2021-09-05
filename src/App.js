@@ -5,39 +5,19 @@ import Loader from './components/loader/Loader';
 import Error from './components/error/Error';
 import { useRecipe, useScroll } from './customHooks';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import {
-	faClock,
-	faUsers,
-	faWeight,
-	faUser,
-	faFrown,
-} from '@fortawesome/free-solid-svg-icons';
+import { faClock, faUsers, faWeight, faUser, faFrown } from '@fortawesome/free-solid-svg-icons';
 import './App.css';
 library.add(faClock, faUsers, faWeight, faUser, faFrown);
 
 const App = () => {
-	const {
-		updateSearch,
-		getSearch,
-		isLoading,
-		recipes,
-		noResults,
-		search,
-		query,
-	} = useRecipe(null);
+	const { updateSearch, getSearch, isLoading, recipes, noResults, search, query } = useRecipe(null);
 	const { scrollY } = useScroll(query);
 	const notScroll = scrollY > 130;
 
 	//Get App Template
 	return (
 		<div className='App'>
-			<Nav
-				getSearch={getSearch}
-				search={search}
-				updateSearch={updateSearch}
-				scroll={scrollY}
-				notScroll={notScroll}
-			/>
+			<Nav getSearch={getSearch} search={search} updateSearch={updateSearch} scroll={scrollY} notScroll={notScroll} />
 
 			{/*-- Show Loader --*/}
 			{isLoading ? (

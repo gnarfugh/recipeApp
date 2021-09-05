@@ -16,27 +16,11 @@ const Logo = ({ scroll }) => {
 	const getScrollClass = (sClass, nClass) => (scroll ? sClass : nClass);
 
 	return (
-		<div
-			className={`${style.logo_container} ${getScrollClass(
-				style.width_s,
-				style.width_n
-			)}`}>
+		<div className={`${style.logo_container} ${getScrollClass(style.width_s, style.width_n)}`}>
 			<a href={'/'} rel='noreferrer'>
 				<div className={style.svg_container}>
-					<svg
-						className={style.logo}
-						x='0px'
-						y='0px'
-						viewBox='0 0 149.5 120.08'
-						xmlSpace='preserve'>
-						<path
-							id='Logo'
-							className={getScrollClass(
-								style.logo_path_white,
-								style.logo_path_color
-							)}
-							d={dCode}
-						/>
+					<svg className={style.logo} x='0px' y='0px' viewBox='0 0 149.5 120.08' xmlSpace='preserve'>
+						<path id='Logo' className={getScrollClass(style.logo_path_white, style.logo_path_color)} d={dCode} />
 					</svg>
 				</div>
 			</a>
